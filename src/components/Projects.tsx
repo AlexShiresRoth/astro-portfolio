@@ -1,6 +1,6 @@
-import GithubConnection from "./GithubConnection";
+import type { Repository } from "../types/repository";
 
-const Projects = () => {
+const Projects = ({ repos }: { repos: Repository[] }) => {
   return (
     <div className="flex flex-col gap-8 min-h-screen pb-96">
       <div className="flex flex-col gap-2">
@@ -63,7 +63,9 @@ const Projects = () => {
           standards.
         </p>
       </div>
-      <GithubConnection />
+      {repos.map((repo) => {
+        return <div key={repo.id}>{repo.name}</div>;
+      })}
     </div>
   );
 };
