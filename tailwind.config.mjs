@@ -30,7 +30,7 @@ export default {
 			},
 			cloud: {
 			  "0%": {
-				transform: "translateX(-25vw)",
+				transform: "translateX(-55vw)",
 			  },
 			  "100%": { transform: "translateX(115vw)" },
 			},

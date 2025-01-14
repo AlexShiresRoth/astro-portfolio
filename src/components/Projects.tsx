@@ -1,3 +1,5 @@
+import GithubConnection from "./GithubConnection";
+
 const Projects = () => {
   return (
     <div className="flex flex-col gap-8 min-h-screen pb-96">
@@ -61,6 +63,7 @@ const Projects = () => {
           standards.
         </p>
       </div>
+      <GithubConnection />
     </div>
   );
 };

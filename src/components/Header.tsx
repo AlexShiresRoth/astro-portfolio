@@ -3,6 +3,10 @@ const Header = () => {
     <header className="block min-h-screen">
       <div className="sticky top-16">
         <div className="flex w-full flex-col items-start gap-2 md:gap-4">
+          <nav className="flex gap-4">
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+          </nav>
           <h1 className="uppercase text-black text-left font-bold text-5xl">
             Alex Rothenberg
           </h1>
