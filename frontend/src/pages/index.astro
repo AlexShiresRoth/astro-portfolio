@@ -1,4 +1,5 @@
 ---
+import { createClient } from "@sanity/client";
 import { GITHUB_AUTH_TOKEN } from "astro:env/server";
 import AnimatedContainer from "../components/AnimatedContainer";
 import ContentContainer from "../components/ContentContainer";
@@ -8,6 +9,18 @@ import Layout from "../layouts/Layout.astro";
 import "../styles.css";
 import type { Repository } from "../types/repository";
 
+export const client = createClient({
+  projectId: import.meta.env.SANITY_PROJECT_ID,
+  dataset: "production",
+  useCdn: true, // set to `false` to bypass the edge cache
+  // Set default headers to be included with all requests
+  headers: {
+    "X-Custom-Header": "custom-value",
+  },
+  apiVersion: "2025-02-06", // use current date (YYYY-MM-DD) to target the latest API version. Note: this should always be hard coded. Setting API version based on a dynamic value (e.g. new Date()) may break your application at a random point in the future.
+  token: import.meta.env.SANITY_API_TOKEN, // Needed for certain operations like updating content, accessing drafts or using draft perspectives
+});
+console.log("client", client);
 async function getGithubRepos(): Promise<Repository[]> {
   const token = GITHUB_AUTH_TOKEN;
 

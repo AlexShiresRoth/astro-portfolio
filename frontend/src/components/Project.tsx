@@ -29,7 +29,6 @@ async function getRepoReadme(repoOwner: string, repo: string): Promise<string> {
     const decodedReadme = Buffer.from(readme.content, "base64").toString(
       "utf-8"
     );
-    console.log("Readme", decodedReadme);
     return decodedReadme;
   } catch (error) {
     console.error("Error:", error);
@@ -38,7 +37,6 @@ async function getRepoReadme(repoOwner: string, repo: string): Promise<string> {
 }
 
 const Project = async ({ repo }: Props) => {
-  //   console.log("repo", repo);
   const readme = await getRepoReadme(repo.owner.login, repo.name);
 
   return (
@@ -46,7 +44,7 @@ const Project = async ({ repo }: Props) => {
       <div>
         <h4>{repo.name}</h4>
         <p>{repo.language}</p>
-        <p>{readme}</p>
+        {/* <p>{readme}</p> */}
       </div>
     </div>
   );
