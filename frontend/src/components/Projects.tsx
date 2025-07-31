@@ -1,7 +1,7 @@
-import type { Repository } from "../types/repository";
-import Project from "./Project";
+import type { Project } from "../types/project";
+import ProjectComponent from "./Project";
 
-const Projects = async ({ repos }: { repos: Repository[] }) => {
+const Projects = async ({ projects }: { projects: Project[] }) => {
   return (
     <div className="flex flex-col gap-8 min-h-screen pb-96">
       <div className="flex flex-col gap-2">
@@ -64,8 +64,8 @@ const Projects = async ({ repos }: { repos: Repository[] }) => {
           standards.
         </p>
       </div>
-      {repos.map((repo) => {
-        return <Project key={repo.id} repo={repo} />;
+      {projects.map((project) => {
+        return <ProjectComponent key={project._id} project={project} />;
       })}
     </div>
   );

@@ -1,53 +1,51 @@
-import { GITHUB_AUTH_TOKEN } from "astro:env/server";
-import type { Repository } from "../types/repository";
+import { ArrowUpRight } from "lucide-react";
+import type { Project } from "../types/project";
 
 type Props = {
-  repo: Repository;
+  project: Project;
 };
 
-async function getRepoReadme(repoOwner: string, repo: string): Promise<string> {
-  try {
-    const token = GITHUB_AUTH_TOKEN;
-
-    const response = await fetch(
-      `https://api.github.com/repos/${repoOwner}/${repo}/readme`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: "application/vnd.github+json",
-        },
-      }
-    );
-
-    const readme = await response.json();
-
-    if (!readme.content) {
-      return "";
-    }
-
-    const decodedReadme = Buffer.from(readme.content, "base64").toString(
-      "utf-8"
-    );
-    return decodedReadme;
-  } catch (error) {
-    console.error("Error:", error);
-    return JSON.stringify(error);
-  }
-}
-
-const Project = async ({ repo }: Props) => {
-  const readme = await getRepoReadme(repo.owner.login, repo.name);
-
+const ProjectComponent = async ({ project }: Props) => {
   return (
-    <div className="flex flex-col">
-      <div>
-        <h4>{repo.name}</h4>
-        <p>{repo.language}</p>
-        {/* <p>{readme}</p> */}
+    <div className="flex gap-4 hover:bg-black/10 p-4 transition-colors">
+      <div className="pt-2">
+        {project.optImage && (
+          <img src={project.optImage?.width(450).url()} alt={project.title} />
+        )}
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <a
+            href={project.liveLink}
+            target="__blank"
+            rel="noopener noreferrer"
+            className="font-bold text-lg hover:underline"
+          >
+            {project.title}
+          </a>
+          <a
+            href={project.sourceCodeLink}
+            target="__blank"
+            rel="noopener noreferrer"
+            className="hover:underline flex items-center gap-1 text-sm"
+          >
+            Source <ArrowUpRight size={14} />
+          </a>
+        </div>
+        <p>{project.body}</p>
+        <div className="flex items-center gap-2">
+          {project.languages.map((lang) => (
+            <span
+              key={lang}
+              className="py-1 px-2 text-sm bg-black text-emerald-400"
+            >
+              {lang}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default Project;
+export default ProjectComponent;
