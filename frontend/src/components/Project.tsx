@@ -7,10 +7,15 @@ type Props = {
 
 const ProjectComponent = async ({ project }: Props) => {
   return (
-    <div className="flex gap-4 hover:bg-black/10 p-4 transition-colors">
+    <div className="flex gap-4">
       <div className="pt-2">
         {project.optImage && (
-          <img src={project.optImage?.width(450).url()} alt={project.title} />
+          <img
+            src={project.optImage?.width(450).url()}
+            alt={project.title}
+            height={400}
+            width={500}
+          />
         )}
       </div>
       <div className="flex flex-col gap-2">
@@ -35,10 +40,7 @@ const ProjectComponent = async ({ project }: Props) => {
         <p>{project.body}</p>
         <div className="flex items-center gap-2">
           {project.languages.map((lang) => (
-            <span
-              key={lang}
-              className="py-1 px-2 text-sm bg-black text-emerald-400"
-            >
+            <span key={lang} className="py-1 px-2 text-sm">
               {lang}
             </span>
           ))}
