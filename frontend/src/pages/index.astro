@@ -5,10 +5,10 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import AnimatedContainer from "../components/AnimatedContainer";
 import ContentContainer from "../components/ContentContainer";
 import Header from "../components/Header";
-import Projects from "../components/Projects";
+import WorkProjects from "../components/Work";
 import Layout from "../layouts/Layout.astro";
 import "../styles.css";
-import type { Project } from "../types/project";
+import type { Work } from "../types/project";
 
 export const client = createClient({
   projectId: import.meta.env.SANITY_PROJECT_ID,
@@ -22,17 +22,25 @@ export const client = createClient({
   token: import.meta.env.SANITY_API_TOKEN, // Needed for certain operations like updating content, accessing drafts or using draft perspectives
 });
 
-const PROJECTS_QUERY = `*[_type == "project"]{
+const WORK_QUERY = `*[_type == "work"]{
   _id,
+  order,
   title,
-  liveLink,
-  sourceCodeLink,
-  body,
-  mainImage,
-  languages
+  dateRange,
+  description,
+  responsibilities,
+  Projects[]->{
+    _id,
+    title,
+    liveLink,
+    sourceCodeLink,
+    mainImage,
+    languages,
+    body,
+  }
 }`;
 
-const projects = await client.fetch<SanityDocument<Project[]>>(PROJECTS_QUERY);
+const work = await client.fetch<SanityDocument<Work[]>>(WORK_QUERY);
 
 const imageBuilder = imageUrlBuilder(client);
 
@@ -40,19 +48,29 @@ function buildImageUrl(source: SanityImageSource) {
   return imageBuilder.image(source);
 }
 
-const projectsWithImages = projects.map((project) => ({
-  ...project,
-  optImage: buildImageUrl(project.mainImage),
-}));
+const workMap = work
+  .sort((a, b) => a.order - b.order)
+  .map((work) => {
+    return {
+      ...work,
+      Projects:
+        work.Projects?.map((project) => ({
+          ...project,
+          optImage: buildImageUrl(project.mainImage),
+        })) || [],
+    };
+  });
+
+console.log("workMap", workMap);
 ---
 
 <Layout>
-  <AnimatedContainer>
-    <ContentContainer>
+  <ContentContainer>
+    <AnimatedContainer>
       <Header />
-      <main>
-        <Projects projects={projectsWithImages} />
-      </main>
-    </ContentContainer>
-  </AnimatedContainer>
+    </AnimatedContainer>
+  </ContentContainer>
+  <ContentContainer>
+    <WorkProjects workMap={workMap} />
+  </ContentContainer>
 </Layout>

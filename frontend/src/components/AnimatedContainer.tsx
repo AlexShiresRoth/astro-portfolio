@@ -6,7 +6,7 @@ type Props = {
 
 const AnimatedContainer = ({ children }: Props) => {
   return (
-    <section className="relative w-full min-h-screen">
+    <section className="relative w-full">
       {children}
       <BackgroundShapes />
     </section>

@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import type { Project } from "../types/project";
 
 type Props = {
@@ -7,19 +6,16 @@ type Props = {
 
 const ProjectComponent = async ({ project }: Props) => {
   return (
-    <div className="flex gap-4">
-      <div className="pt-2">
-        {project.optImage && (
-          <img
-            src={project.optImage?.width(450).url()}
-            alt={project.title}
-            height={400}
-            width={500}
-          />
-        )}
-      </div>
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-8 items-center">
+      {project.optImage && (
+        <img
+          src={project.optImage?.width(450).url()}
+          alt={project.title}
+          className="rounded"
+        />
+      )}
+      {/* <div className="flex flex-col gap-2">
+        <div className="flex items-center justify-between w-full">
           <a
             href={project.liveLink}
             target="__blank"
@@ -40,12 +36,12 @@ const ProjectComponent = async ({ project }: Props) => {
         <p>{project.body}</p>
         <div className="flex items-center gap-2">
           {project.languages.map((lang) => (
-            <span key={lang} className="py-1 px-2 text-sm">
+            <span key={lang} className="text-sm">
               {lang}
             </span>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

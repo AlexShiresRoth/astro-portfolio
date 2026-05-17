@@ -22,7 +22,7 @@ const Canvas = ({ children }: Props<ReactNode>) => {
   return (
     <div
       id="canvas"
-      className="flex flex-col w-full items-end border-b-4 border-b-gray-400 relative z-0"
+      className="flex flex-col w-full border-b-4 border-b-gray-400 relative z-0"
     >
       {children}
     </div>

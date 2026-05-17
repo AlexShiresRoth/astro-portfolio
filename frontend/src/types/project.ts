@@ -10,3 +10,13 @@ export type Project = {
   sourceCodeLink: string;
   title: string;
 };
+
+export type Work = {
+  _id: string;
+  order: number;
+  title: string;
+  dateRange: string;
+  description: string;
+  responsibilities: string;
+  Projects: Project[];
+};
