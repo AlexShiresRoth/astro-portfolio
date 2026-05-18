@@ -30,11 +30,5 @@ export default defineType({
       title: 'Responsibilities',
       type: 'text',
     }),
-    defineField({
-      name: 'Projects',
-      title: 'Projects',
-      type: 'array',
-      of: [{type: 'reference', to: [{type: 'project'}]}],
-    }),
   ],
 })
