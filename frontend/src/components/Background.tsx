@@ -25,6 +25,7 @@ const Canvas = ({ children }: Props<ReactNode>) => {
       className="flex flex-col w-full fixed bottom-1 left-0 z-0 h-screen border-b-8 border-b-gray-400"
     >
       {children}
+      <div className="fixed z-20 bottom-0 left-0 w-full h-full bg-[#111]/80 md:bg-[#111]/70 backdrop-blur-xs md:backdrop-blur-none" />
     </div>
   );
 };
