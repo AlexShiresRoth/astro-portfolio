@@ -95,7 +95,7 @@ export const DoorWayTwo = (props: WindowProps<string>) => (
 );
 
 export const DoorWayThree = (
-  props: WindowProps<string> & { accent: string }
+  props: WindowProps<string> & { accent: string },
 ) => (
   <div className="absolute bottom-0 left-0 flex w-full flex-col gap-1">
     <span
@@ -129,7 +129,7 @@ type BuildingProps = {
 
 export const BuildingOne = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 z-20", {
+    className={cn("absolute bottom-0 z-0", {
       [props.xCoord]: true,
     })}
   >
@@ -148,14 +148,14 @@ export const BuildingOne = (props: BuildingProps) => (
 
 export const BuildingTwo = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 z-20", {
+    className={cn("absolute bottom-0 z-0", {
       [props.xCoord]: true,
     })}
   >
     <span
       className={cn(
         "relative ml-8 flex h-60 w-16 flex-col items-center  border-t-4  bg-black p-2",
-        { [props.borderColor as string]: true }
+        { [props.borderColor as string]: true },
       )}
     >
       <span className="absolute bottom-[100%] left-4 h-4 w-1 border-t-4 border-t-red-700 bg-black" />
@@ -172,7 +172,7 @@ export const BuildingTwo = (props: BuildingProps) => (
 
 export const BuildingThree = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 z-20", {
+    className={cn("absolute bottom-0 z-0", {
       [props.xCoord]: true,
     })}
   >
@@ -191,7 +191,7 @@ export const BuildingThree = (props: BuildingProps) => (
 
 export const BuildingFour = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 flex items-end z-20", {
+    className={cn("absolute bottom-0 flex items-end z-0", {
       [props.xCoord]: true,
     })}
   >
@@ -271,7 +271,7 @@ export const BuildingFour = (props: BuildingProps) => (
 
 export const BuildingFive = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 z-20", {
+    className={cn("absolute bottom-0 z-0", {
       [props.xCoord]: true,
     })}
   >
@@ -298,7 +298,7 @@ export const BuildingFive = (props: BuildingProps) => (
 
 export const BuildingSix = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 flex items-end z-20", {
+    className={cn("absolute bottom-0 flex items-end z-0", {
       [props.xCoord]: true,
     })}
   >
@@ -322,7 +322,7 @@ export const BuildingSix = (props: BuildingProps) => (
 
 export const Tower = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 z-10", {
+    className={cn("absolute bottom-0 z-0", {
       [props.xCoord]: true,
     })}
   >
@@ -332,7 +332,7 @@ export const Tower = (props: BuildingProps) => (
           "absolute bottom-[100%] left-0 h-16 w-[100%] rounded-tl-full border-b-4 border-t-4  bg-gray-800",
           {
             [props.borderColor as string]: true,
-          }
+          },
         )}
       />
       <span className="absolute bottom-[100%] right-5 h-20 w-1 border-t-4 border-t-white bg-gray-400" />
@@ -349,7 +349,7 @@ export const Tower = (props: BuildingProps) => (
 
 export const TowerTwo = (props: BuildingProps) => (
   <div
-    className={cn("absolute bottom-0 z-10 flex flex-col items-center", {
+    className={cn("absolute bottom-0 z-0 flex flex-col items-center", {
       [props.xCoord]: true,
     })}
   >

@@ -4,7 +4,7 @@ type Props = {
   project: Project;
 };
 
-const ProjectComponent = async ({ project }: Props) => {
+const ProjectComponent = ({ project }: Props) => {
   return (
     <div className="flex flex-col gap-8 items-center">
       {project.optImage && (
