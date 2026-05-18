@@ -3,14 +3,15 @@ import Experience from "./Experience";
 
 const WorkComponent = ({ workMap }: { workMap: Work[] }) => {
   return (
-    <div className="flex flex-col p-32 w-full relative h-full">
-      <div className="flex flex-col gap-20 bg-black/90 rounded-xl border-2 border-yellow-50/50 p-10 z-10">
-        <h2 className="text-5xl font-bold text-yellow-50">Work Experience</h2>
+    <div className="flex flex-col px-8 md:p-32 w-full relative h-full md:mt-0 mt-10">
+      <div className="flex flex-col md:gap-20 gap-4 border-t-2 border-yellow-50/50 z-10">
+        <h2 className="md:text-5xl text-3xl font-bold text-yellow-50 my-10">
+          Work Experience
+        </h2>
         {workMap.map((work) => {
           return <Experience key={work._id} work={work} />;
         })}
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent"></div>
     </div>
   );
 };
