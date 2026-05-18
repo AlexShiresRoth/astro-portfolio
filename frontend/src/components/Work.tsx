@@ -10,7 +10,7 @@ const WorkComponent = ({ workMap }: { workMap: Work[] }) => {
           return <Experience key={work._id} work={work} />;
         })}
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent blur-sm"></div>
+      <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black to-transparent"></div>
     </div>
   );
 };
