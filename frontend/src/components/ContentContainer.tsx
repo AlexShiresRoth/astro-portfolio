@@ -2,11 +2,15 @@ import type { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
+  id: string;
 };
 
-const ContentContainer = ({ children }: Props) => {
+const ContentContainer = ({ children, id }: Props) => {
   return (
-    <section className="w-full flex flex-col items-center justify-center">
+    <section
+      id={id}
+      className="w-full flex flex-col items-center justify-center relative z-10"
+    >
       {children}
     </section>
   );

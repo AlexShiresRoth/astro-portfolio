@@ -20,7 +20,10 @@ type Props<T> = {
 
 const Canvas = ({ children }: Props<ReactNode>) => {
   return (
-    <div id="canvas" className="flex flex-col w-full relative z-0 h-full">
+    <div
+      id="canvas"
+      className="flex flex-col w-full fixed bottom-1 left-0 z-0 h-screen border-b-8 border-b-gray-400"
+    >
       {children}
     </div>
   );

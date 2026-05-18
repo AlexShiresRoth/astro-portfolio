@@ -2,7 +2,11 @@
 import { createClient, type SanityDocument } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import Hub from "../components/Hub";
+import AnimatedContainer from "../components/AnimatedContainer";
+import ContentContainer from "../components/ContentContainer";
+import Header from "../components/Header";
+import Navigation from "../components/Navigation";
+import WorkComponent from "../components/Work";
 import Layout from "../layouts/Layout.astro";
 import "../styles.css";
 import type { Work } from "../types/project";
@@ -59,7 +63,14 @@ const workMap = work
   });
 ---
 
-<!-- TODO - how can we do this without client loading, and possibly just scroll between components? -->
 <Layout>
-  <Hub work={workMap} client:load />
+  <Navigation client:load />
+  <AnimatedContainer>
+    <ContentContainer id="home">
+      <Header />
+    </ContentContainer>
+    <ContentContainer id="work">
+      <WorkComponent workMap={workMap} />
+    </ContentContainer>
+  </AnimatedContainer>
 </Layout>

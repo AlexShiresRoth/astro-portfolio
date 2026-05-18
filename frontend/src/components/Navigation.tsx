@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { NavContext } from "../context/NavigationContextProvider";
+import { useState } from "react";
 import { cn } from "../lib/utils";
 
 const NavigationButton = ({
@@ -14,8 +13,9 @@ const NavigationButton = ({
   return (
     <button
       className={cn(
-        "text-white font-bold p-2 px-4 border-2 rounded-full border-white",
-        isActive && "bg-white text-black",
+        "text-yellow-50 font-bold p-2 px-4 border-2 rounded-full border-yellow-50 hover:shadow-[4px_4px_0_0_rgba(255,100,100,1)] hover:bg-yellow-50 hover:text-black transition-all duration-300",
+        isActive &&
+          "bg-yellow-50 text-black shadow-[4px_4px_0_0_rgba(255,100,100,1)] hover:bg-transparent hover:text-yellow-50",
       )}
       onClick={() => callback()}
     >
@@ -25,31 +25,45 @@ const NavigationButton = ({
 };
 
 const Navigation = () => {
-  const { navIndex, setNavIndex } = useContext(NavContext);
-
+  const [navIndex, setNavIndex] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const sections = ["home", "work", "about", "contact"];
+  const handleNavigation = (index: number) => {
+    setNavIndex(index);
+    const element = document.getElementById(sections[index]);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  console.log(isScrolling, navIndex);
   return (
-    <nav className="w-screen fixed top-2 left-0 py-8 z-50 flex items-center px-24">
+    <nav
+      className={cn(
+        "w-screen fixed top-2 left-0 py-8 z-50 flex items-center px-32",
+        isScrolling && "py-2 transition-all top-0 bg-black/90 backdrop-blur-sm",
+      )}
+    >
       <div className="flex gap-8">
         <NavigationButton
-          callback={() => setNavIndex(0)}
+          callback={() => handleNavigation(0)}
           isActive={navIndex === 0}
         >
           Home
         </NavigationButton>
         <NavigationButton
-          callback={() => setNavIndex(1)}
+          callback={() => handleNavigation(1)}
           isActive={navIndex === 1}
         >
           Work
         </NavigationButton>
         <NavigationButton
-          callback={() => setNavIndex(2)}
+          callback={() => handleNavigation(2)}
           isActive={navIndex === 2}
         >
           About
         </NavigationButton>
         <NavigationButton
-          callback={() => setNavIndex(3)}
+          callback={() => handleNavigation(3)}
           isActive={navIndex === 3}
         >
           Contact
