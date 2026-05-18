@@ -1,0 +1,76 @@
+---
+import { createClient, type SanityDocument } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import AnimatedContainer from "../components/AnimatedContainer";
+import ContentContainer from "../components/ContentContainer";
+import Header from "../components/Header";
+import Navigation from "../components/Navigation";
+import WorkComponent from "../components/Work";
+import Layout from "../layouts/Layout.astro";
+import "../styles.css";
+import type { Work } from "../types/project";
+
+export const client = createClient({
+  projectId: import.meta.env.SANITY_PROJECT_ID,
+  dataset: "production",
+  useCdn: false, // set to `false` to bypass the edge cache
+  // Set default headers to be included with all requests
+  headers: {
+    "X-Custom-Header": "custom-value",
+  },
+  apiVersion: "2025-02-06", // use current date (YYYY-MM-DD) to target the latest API version. Note: this should always be hard coded. Setting API version based on a dynamic value (e.g. new Date()) may break your application at a random point in the future.
+  token: import.meta.env.SANITY_API_TOKEN, // Needed for certain operations like updating content, accessing drafts or using draft perspectives
+});
+
+const WORK_QUERY = `*[_type == "work"]{
+  _id,
+  order,
+  title,
+  dateRange,
+  description,
+  responsibilities,
+  Projects[]->{
+    _id,
+    title,
+    liveLink,
+    sourceCodeLink,
+    mainImage,
+    languages,
+    body,
+  }
+}`;
+
+const work = await client.fetch<SanityDocument<Work[]>>(WORK_QUERY);
+
+const imageBuilder = imageUrlBuilder(client);
+
+function buildImageUrl(source: SanityImageSource) {
+  return imageBuilder.image(source);
+}
+
+const workMap = work
+  .sort((a, b) => a.order - b.order)
+  .map((work) => {
+    return {
+      ...work,
+      Projects:
+        work.Projects?.map((project) => ({
+          ...project,
+          optImage: buildImageUrl(project.mainImage),
+        })) || [],
+    };
+  });
+---
+
+<Layout>
+  <Navigation client:load />
+  <AnimatedContainer>
+    <ContentContainer id="home">
+      <Header />
+    </ContentContainer>
+    <ContentContainer id="work">
+      <WorkComponent workMap={workMap} />
+    </ContentContainer>
+  </AnimatedContainer>
+</Layout>
