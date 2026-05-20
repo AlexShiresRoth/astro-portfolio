@@ -20,3 +20,9 @@ export type Work = {
   responsibilities: string;
   Projects: Project[];
 };
+
+export type Header = {
+  _id: string;
+  title: string;
+  contentList: string[];
+};
