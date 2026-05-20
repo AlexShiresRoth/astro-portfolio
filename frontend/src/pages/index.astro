@@ -9,12 +9,13 @@ import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import Projects from "../components/Projects";
 import WorkComponent from "../components/Work";
+import { sections } from "../constants";
 import Layout from "../layouts/Layout.astro";
 import "../styles.css";
-import type { Project, Work } from "../types/project";
+import type { Header as HeaderType, Project, Work } from "../types/project";
 
-// TODO - need to use sanity for header component and possibly footer, maybe some others
 // TODO - add a technologies section somewhere
+// TODO - change favicon
 export const client = createClient({
   projectId: import.meta.env.SANITY_PROJECT_ID,
   dataset: "production",
@@ -26,6 +27,12 @@ export const client = createClient({
   apiVersion: "2025-02-06", // use current date (YYYY-MM-DD) to target the latest API version. Note: this should always be hard coded. Setting API version based on a dynamic value (e.g. new Date()) may break your application at a random point in the future.
   token: import.meta.env.SANITY_API_TOKEN, // Needed for certain operations like updating content, accessing drafts or using draft perspectives
 });
+
+const HEADER_QUERY = `*[_type == "header"]{
+  _id,
+  title,
+  contentList,
+}`;
 
 const PROJECT_QUERY = `*[_type == "project"]{
   _id,
@@ -45,14 +52,16 @@ const WORK_QUERY = `*[_type == "work"]{
   description,
   responsibilities,
 }`;
-
-const work = await client.fetch<SanityDocument<Work[]>>(WORK_QUERY);
-
 const imageBuilder = imageUrlBuilder(client);
 
 function buildImageUrl(source: SanityImageSource) {
   return imageBuilder.image(source);
 }
+
+const work = await client.fetch<SanityDocument<Work[]>>(WORK_QUERY);
+
+const headerContent =
+  await client.fetch<SanityDocument<HeaderType[]>>(HEADER_QUERY);
 
 const workMap = work.sort((a, b) => a.order - b.order);
 
@@ -67,15 +76,15 @@ const projectMap = projects.map((project) => {
 ---
 
 <Layout>
-  <Navigation client:visible />
+  <Navigation client:only="react" />
   <AnimatedContainer>
-    <ContentContainer id="home">
-      <Header />
+    <ContentContainer id={sections[0].name}>
+      <Header header={headerContent?.[0]} />
     </ContentContainer>
-    <ContentContainer id="projects">
+    <ContentContainer id={sections[1].name}>
       <Projects projects={projectMap} />
     </ContentContainer>
-    <ContentContainer id="work">
+    <ContentContainer id={sections[2].name}>
       <WorkComponent workMap={workMap} />
     </ContentContainer>
     <ContentContainer id="footer">

@@ -11,7 +11,7 @@ const Navigation = () => {
     setNavIndex(index);
     const element = document.getElementById(sections[index].name);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -37,7 +37,7 @@ const Navigation = () => {
     const body = document.body;
     const sectionPositions = sections.map((section) => {
       const element = document.getElementById(section.name);
-      return element?.getBoundingClientRect().top ?? -1;
+      return element?.offsetTop ?? -1;
     });
     body.addEventListener(
       "scroll",
@@ -53,7 +53,7 @@ const Navigation = () => {
         setIsScrolling(false);
       });
     };
-  }, []);
+  }, [handleScroll]);
 
   return (
     <nav
