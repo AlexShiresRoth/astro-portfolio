@@ -4,6 +4,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import AnimatedContainer from "../components/AnimatedContainer";
 import ContentContainer from "../components/ContentContainer";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import Projects from "../components/Projects";
@@ -12,6 +13,8 @@ import Layout from "../layouts/Layout.astro";
 import "../styles.css";
 import type { Project, Work } from "../types/project";
 
+// TODO - need to use sanity for header component and possibly footer, maybe some others
+// TODO - add a technologies section somewhere
 export const client = createClient({
   projectId: import.meta.env.SANITY_PROJECT_ID,
   dataset: "production",
@@ -74,6 +77,9 @@ const projectMap = projects.map((project) => {
     </ContentContainer>
     <ContentContainer id="work">
       <WorkComponent workMap={workMap} />
+    </ContentContainer>
+    <ContentContainer id="footer">
+      <Footer />
     </ContentContainer>
   </AnimatedContainer>
 </Layout>
