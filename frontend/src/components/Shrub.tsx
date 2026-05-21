@@ -1,6 +1,5 @@
 import { cn } from "../lib/utils";
 
-
 type Props = {
   xCoord: string;
 };
@@ -8,7 +7,7 @@ type Props = {
 const Shrub = (props: Props) => {
   return (
     <div
-      className={cn("absolute bottom-0 z-20", {
+      className={cn("absolute bottom-0", {
         [props.xCoord]: true,
       })}
     >

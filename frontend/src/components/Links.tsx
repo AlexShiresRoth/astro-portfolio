@@ -1,4 +1,5 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { MdMail } from "react-icons/md";
 
 // TODO - use sanity to get these links
 const Links = () => {
@@ -8,26 +9,23 @@ const Links = () => {
         href="https://github.com/AlexShiresRoth"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline flex items-center"
+        className="hover:scale-110 transition-all duration-300 flex items-center"
       >
-        Github
-        <ArrowUpRight size={20} />
+        <FaGithub size={32} />
       </a>
       <a
         href="https://www.linkedin.com/in/alex-rothenberg-603112110/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:underline flex items-center"
+        className="hover:scale-110 transition-all duration-300 flex items-center"
       >
-        LinkedIn
-        <ArrowUpRight size={20} />
+        <FaLinkedin size={32} />
       </a>
       <a
         href="mailto:hello@alexr.dev"
-        className="hover:underline flex items-center gap-1"
+        className="hover:scale-110 transition-all duration-300 flex items-center"
       >
-        Email Me
-        <Mail size={20} />
+        <MdMail size={40} />
       </a>
     </>
   );

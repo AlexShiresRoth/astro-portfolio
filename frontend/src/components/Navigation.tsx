@@ -15,41 +15,37 @@ const Navigation = () => {
     }
   };
 
-  const handleScroll = useCallback(
-    (body: HTMLElement, sectionPositions: number[]) => {
-      if (body.scrollTop > 100) {
-        setIsScrolling(true);
-        const index = sectionPositions.findIndex(
-          (position, i, arr) =>
-            body.scrollTop + 100 >= position &&
-            body.scrollTop + 100 < (arr[i + 1] ?? Infinity),
-        );
-        setNavIndex(index);
-      } else {
-        setIsScrolling(false);
-        setNavIndex(0);
-      }
-    },
-    [],
-  );
+  const handleScroll = useCallback((sn: number, sectionPositions: number[]) => {
+    if (sn > 100) {
+      setIsScrolling(true);
+      const index = sectionPositions.findIndex(
+        (position, i, arr) =>
+          sn + 150 >= position && sn + 150 < (arr[i + 1] ?? Infinity),
+      );
+      setNavIndex(index);
+    } else {
+      setIsScrolling(false);
+      setNavIndex(0);
+    }
+  }, []);
 
   useEffect(() => {
-    const body = document.body;
     const sectionPositions = sections.map((section) => {
       const element = document.getElementById(section.name);
       return element?.offsetTop ?? -1;
     });
-    body.addEventListener(
+
+    window.addEventListener(
       "scroll",
       () => {
-        handleScroll(body, sectionPositions);
+        handleScroll(window.scrollY, sectionPositions);
       },
       {
         passive: true,
       },
     );
     return () => {
-      body.removeEventListener("scroll", () => {
+      window.removeEventListener("scroll", () => {
         setIsScrolling(false);
       });
     };
