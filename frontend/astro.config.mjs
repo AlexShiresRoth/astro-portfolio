@@ -14,6 +14,9 @@ export default defineConfig({
       GITHUB_AUTH_TOKEN: envField.string({ context: "server", access: "secret"})
     }
   },
+  server: {
+    allowedHosts: ["alexr.dev", "vaporescent-admonitorily-ramon.ngrok-free.dev"],
+  },
   experimental: {
     fonts: [
       {

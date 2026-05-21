@@ -3,9 +3,9 @@ import Links from "./Links";
 
 const Header = ({ header }: { header: HeaderType }) => {
   return (
-    <header className="w-full h-[99.5vh] text-yellow-50 flex flex-col justify-center">
-      <div className="flex flex-col w-fit gap-2 md:gap-4 relative z-10 rounded-xl max-w-5xl">
-        <h1 className="text-left font-extrabold text-3xl md:text-9xl font-robotoMono">
+    <header className="w-full flex flex-col h-[95vh]">
+      <div className="flex flex-col w-fit gap-6 rounded-xl max-w-5xl sticky md:top-1/3 top-1/4">
+        <h1 className="text-left font-extrabold text-6xl md:text-9xl font-robotoMono">
           {header.title}
         </h1>
         {header.contentList?.map((content) => (
