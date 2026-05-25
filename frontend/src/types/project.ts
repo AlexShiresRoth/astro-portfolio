@@ -18,6 +18,7 @@ export type Work = {
   dateRange: string;
   description: string;
   responsibilities: string;
+  location: string;
   Projects: Project[];
 };
 

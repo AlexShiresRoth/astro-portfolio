@@ -7,9 +7,9 @@ const WorkComponent = ({ workMap }: { workMap: Work[] }) => {
   return (
     <WrapperWithBorder>
       <Subheading text="Work Experience" />
-      {workMap.map((work) => {
-        return <Experience key={work._id} work={work} />;
-      })}
+      {workMap.map((work) => (
+        <Experience key={work._id} work={work} />
+      ))}
     </WrapperWithBorder>
   );
 };
