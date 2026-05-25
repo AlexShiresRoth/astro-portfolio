@@ -59,7 +59,7 @@ const Navigation = () => {
           "py-2 md:py-4 transition-all top-0 bg-[#111]/90 backdrop-blur-md",
       )}
     >
-      <div className="flex w-11/12 md:w-3/4 gap-2 md:gap-8 justify-between md:justify-start">
+      <div className="flex w-11/12 md:w-3/4 gap-8">
         {sections.map((navItem, i) => (
           <NavigationButton
             key={navItem.name}

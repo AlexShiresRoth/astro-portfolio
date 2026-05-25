@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SiNextdotjs, SiReact, SiSvelte, SiTypescript } from "react-icons/si";
 import {
   BuildingFive,
   BuildingFour,
@@ -65,6 +66,7 @@ const HeroBackground = () => {
           xCoord="left-[82vw]"
           windowColor="bg-orange-400"
           bottomColor="border-b-orange-600"
+          icon={<SiReact size={20} className="text-black" />}
         />
         <BuildingFive
           xCoord="left-[65vw]"
@@ -86,13 +88,13 @@ const HeroBackground = () => {
           windowColor="bg-stone-900"
           bottomColor="border-b-violet-400"
           borderColor="border-violet-400"
-        />{" "}
+        />
         <BuildingTwo
           xCoord="left-[37.5vw]"
           windowColor="bg-blue-500"
           bottomColor="border-b-blue-300"
           borderColor="border-blue-500"
-        />{" "}
+        />
         <BuildingThree
           xCoord="left-[45vw]"
           windowColor="bg-green-400"
@@ -103,18 +105,21 @@ const HeroBackground = () => {
           xCoord="left-[28vw]"
           windowColor="bg-fuchsia-400"
           bottomColor="border-b-fuchsia-600"
+          icon={<SiTypescript size={20} className="text-black" />}
         />
         <Tower
           xCoord="left-[92.5vw]"
           windowColor="bg-gray-800"
           bottomColor="border-b-emerald-300"
           borderColor="border-emerald-300"
+          icon={<SiNextdotjs size={20} className="text-emerald-300" />}
         />
         <TowerTwo
           xCoord="left-[75vw]"
           windowColor="bg-gray-800"
           bottomColor="border-blue-300"
           borderColor="bg-blue-300"
+          icon={<SiSvelte size={20} className="text-blue-400" />}
         />
         {/* Trees */}
         <TreeBig xCoord="-right-2" />
@@ -145,11 +150,13 @@ const HeroBackground = () => {
           windowColor="bg-gray-800"
           bottomColor="border-blue-300"
           borderColor="bg-blue-300"
+          icon={<SiSvelte size={20} className="text-blue-400" />}
         />
         <BuildingFour
           xCoord="left-[36vw]"
           windowColor="bg-orange-400"
           bottomColor="border-b-orange-600"
+          icon={<SiReact size={20} className="text-black" />}
         />
         <TreeBig xCoord="-right-2" />
         <TreeBig xCoord="-left-1" />

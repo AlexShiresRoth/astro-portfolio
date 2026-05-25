@@ -51,6 +51,7 @@ const WORK_QUERY = `*[_type == "work"]{
   dateRange,
   description,
   responsibilities,
+  location,
 }`;
 const imageBuilder = imageUrlBuilder(client);
 
@@ -78,10 +79,8 @@ const projectMap = projects.map((project) => {
 <Layout>
   <main>
     <Navigation client:only="react" />
-    <ContentContainer id={sections[0].name} overlay={false}>
-      <Header header={headerContent?.[0]} />
-    </ContentContainer>
-    <ContentContainer id="tech">
+    <Header header={headerContent?.[0]} />
+    <ContentContainer id="tech" isFirst={true}>
       <Tech />
     </ContentContainer>
     <ContentContainer id={sections[1].name}>
