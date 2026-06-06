@@ -77,7 +77,7 @@ const projectMap = projects.map((project) => {
 ---
 
 <Layout>
-  <main>
+  <main id={sections[0].name}>
     <Navigation client:only="react" />
     <Header header={headerContent?.[0]} />
     <ContentContainer id="tech" isFirst={true}>

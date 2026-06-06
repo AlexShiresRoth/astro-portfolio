@@ -62,6 +62,7 @@ const Navigation = () => {
       <div className="flex w-11/12 md:w-3/4 gap-8">
         {sections.map((navItem, i) => (
           <NavigationButton
+            index={i}
             key={navItem.name}
             callback={() => handleNavigation(i)}
             isActive={navIndex === i}

@@ -65,6 +65,11 @@ export default {
 			  },
 			  "100%": { transform: "translateX(-50vw)" },
 			},
+		
+			fadeIn: {
+				"0%": { opacity: "0" , },
+				"100%": { opacity: "1" ,  },
+			},
 		  },
 		  animation: {
 			wiggle: "wiggle 0.8s both",
@@ -77,6 +82,11 @@ export default {
 			cloudMobile1: "cloudMobile 80s ease-in-out infinite",
 			cloudMobile2: "cloudMobile 90s ease-in-out infinite",
 			cloudMobile3: "cloudMobile 100s ease-in-out infinite",
+			fadeIn: "fadeIn 1.3s ease-in-out 0s both",
+			fadeIn2: "fadeIn 1.3s ease-in-out 0.1s both",
+			fadeIn3: "fadeIn 1.3s ease-in-out 0.2s both",
+			fadeIn4: "fadeIn 1.3s ease-in-out 0.3s both",
+			fadeIn5: "fadeIn 1.3s ease-in-out 0.4s both",
 		  },
 		},
 	

@@ -5,11 +5,13 @@ const NavigationButton = ({
   callback,
   isActive,
   isScrolling,
+  index,
 }: {
   children: React.ReactNode;
   callback: () => void;
   isActive: boolean;
   isScrolling: boolean;
+  index: number;
 }) => {
   return (
     <button
@@ -18,6 +20,9 @@ const NavigationButton = ({
         isActive &&
           "bg-yellow-50 text-black shadow-[4px_4px_0_0_rgba(255,100,100,1)] md:hover:bg-transparent md:hover:text-yellow-50",
         isScrolling && "md:p-1 md:text-sm",
+        index === 0 && "animate-fadeIn",
+        index === 1 && "animate-fadeIn2",
+        index === 2 && "animate-fadeIn3",
       )}
       onClick={() => callback()}
     >
