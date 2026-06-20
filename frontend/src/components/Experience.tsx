@@ -10,9 +10,20 @@ const Experience = ({ work }: Props) => {
     <div className="flex items-center gap-4 h-full" key={work._id}>
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-xl md:text-2xl text-yellow-50">
-            {work.title}
-          </h3>
+          {!work.link ? (
+            <p className="font-bold text-xl md:text-2xl text-yellow-50">
+              {work.title}
+            </p>
+          ) : (
+            <a
+              href={work.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-xl md:text-2xl text-yellow-50 hover:underline hover:italic hover:text-[rgba(255,100,100,1)] transition-all duration-300"
+            >
+              {work.title}
+            </a>
+          )}
           <div className="flex flex-col gap-2 mr-10">
             <p className="text-[rgba(255,100,100,1)] flex items-center gap-1">
               <FaMapMarkerAlt size={16} /> {work.location}
