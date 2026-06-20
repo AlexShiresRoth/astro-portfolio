@@ -20,6 +20,7 @@ export type Work = {
   responsibilities: string;
   location: string;
   Projects: Project[];
+  link: string;
 };
 
 export type Header = {
