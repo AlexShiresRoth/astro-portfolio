@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { SiNextdotjs, SiReact, SiSvelte, SiTypescript } from "react-icons/si";
 import {
   BuildingFive,
   BuildingFour,
@@ -23,7 +22,7 @@ const Canvas = ({ children }: Props<ReactNode>) => {
   return (
     <div
       id="canvas"
-      className="flex flex-col w-full fixed bottom-1 left-0 z-0 h-screen border-b-8 border-b-gray-400"
+      className="flex flex-col w-full fixed bottom-1 left-0 z-0 h-screen border-b-8 border-b-slate-700"
     >
       {children}
       <div className="fixed bottom-0 left-0 w-full h-full bg-[#111]/80 md:bg-[#111]/70 backdrop-blur-xs md:backdrop-blur-none" />
@@ -32,6 +31,13 @@ const Canvas = ({ children }: Props<ReactNode>) => {
 };
 
 const HeroBackground = () => {
+  const windowColor = "bg-slate-400/60";
+  const bottomColor = "border-b-slate-800/50";
+  const borderColor = "border-gray-700";
+  const secondLayerWindowColor = "bg-slate-600/60";
+  const secondLayerBottomColor = "border-b-slate-800/50";
+  const secondLayerBorderColor = "border-gray-800";
+
   return (
     <Canvas>
       <AlwaysVisible>
@@ -46,81 +52,180 @@ const HeroBackground = () => {
       </AlwaysVisible>
       <HideOnMobile>
         {/* Buildings */}
-        <BuildingOne
-          xCoord="left-2"
-          windowColor="bg-rose-400"
-          bottomColor="border-b-gray-600"
-        />
-        <BuildingTwo
-          xCoord="left-[6.5vw]"
-          windowColor="bg-indigo-500"
-          bottomColor="border-b-emerald-300"
-          borderColor="border-indigo-500"
-        />
-        <BuildingThree
-          xCoord="left-[14vw]"
-          windowColor="bg-amber-400"
-          bottomColor="border-b-amber-600"
-        />
-        <BuildingFour
-          xCoord="left-[82vw]"
-          windowColor="bg-orange-400"
-          bottomColor="border-b-orange-600"
-          icon={<SiReact size={20} className="text-black" />}
-        />
-        <BuildingFive
-          xCoord="left-[65vw]"
-          windowColor="bg-sky-400"
-          bottomColor="border-b-sky-500"
-        />
-        <BuildingSix
-          xCoord="left-[20vw]"
-          windowColor="bg-emerald-400"
-          bottomColor="border-b-emerald-600"
-        />
-        <BuildingOne
-          xCoord="left-[50.5vw]"
-          windowColor="bg-teal-400"
-          bottomColor="border-b-gray-500"
-        />
-        <Tower
-          xCoord="left-[58vw]"
-          windowColor="bg-stone-900"
-          bottomColor="border-b-violet-400"
-          borderColor="border-violet-400"
-        />
-        <BuildingTwo
-          xCoord="left-[37.5vw]"
-          windowColor="bg-blue-500"
-          bottomColor="border-b-blue-300"
-          borderColor="border-blue-500"
-        />
-        <BuildingThree
-          xCoord="left-[45vw]"
-          windowColor="bg-green-400"
-          bottomColor="border-b-green-300"
-          borderColor="border-green-500"
-        />
-        <BuildingFour
-          xCoord="left-[28vw]"
-          windowColor="bg-fuchsia-400"
-          bottomColor="border-b-fuchsia-600"
-          icon={<SiTypescript size={20} className="text-black" />}
-        />
-        <Tower
-          xCoord="left-[92.5vw]"
-          windowColor="bg-gray-800"
-          bottomColor="border-b-emerald-300"
-          borderColor="border-emerald-300"
-          icon={<SiNextdotjs size={20} className="text-emerald-300" />}
-        />
-        <TowerTwo
-          xCoord="left-[75vw]"
-          windowColor="bg-gray-800"
-          bottomColor="border-blue-300"
-          borderColor="bg-blue-300"
-          icon={<SiSvelte size={20} className="text-blue-400" />}
-        />
+        <div
+          data-testid="buildings-layer-1"
+          className="absolute z-0 bottom-0 left-0"
+        >
+          <BuildingOne
+            xCoord="left-2"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+          />
+          <BuildingTwo
+            xCoord="left-[6.5vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingThree
+            xCoord="left-[14vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingFour
+            xCoord="left-[82vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingFive
+            xCoord="left-[65vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingSix
+            xCoord="left-[20vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingOne
+            xCoord="left-[50.5vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+          />
+          <Tower
+            xCoord="left-[58vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingTwo
+            xCoord="left-[37.5vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingThree
+            xCoord="left-[45vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <BuildingFour
+            xCoord="left-[28vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <Tower
+            xCoord="left-[92.5vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+          <TowerTwo
+            xCoord="left-[75vw]"
+            windowColor={windowColor}
+            bottomColor={bottomColor}
+            borderColor={borderColor}
+          />
+        </div>
+        <div
+          data-testid="buildings-layer-2"
+          className="absolute -z-10 bottom-0 left-0 w-full border-b-8 border-b-slate-700"
+        >
+          <BuildingOne
+            xCoord="left-[87vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+          />
+          <BuildingTwo
+            xCoord="left-[95vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingThree
+            xCoord="left-[25vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingFour
+            xCoord="left-[10vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingFive
+            xCoord="left-[18vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingSix
+            xCoord="left-[33vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingOne
+            xCoord="left-[26vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+          />
+          <BuildingThree
+            xCoord="left-[72vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingTwo
+            xCoord="left-[79vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingFour
+            xCoord="left-[58vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <TowerTwo
+            xCoord="left-[5vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingThree
+            xCoord="left-[41vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingFive
+            xCoord="left-[-6vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingSix
+            xCoord="left-[48vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+          <BuildingTwo
+            xCoord="left-[53vw]"
+            windowColor={secondLayerWindowColor}
+            bottomColor={secondLayerBottomColor}
+            borderColor={secondLayerBorderColor}
+          />
+        </div>
         {/* Trees */}
         <TreeBig xCoord="-right-2" />
         <TreeBig xCoord="-left-1" />
@@ -141,22 +246,21 @@ const HeroBackground = () => {
       <HideOnDesktop>
         <BuildingOne
           xCoord="left-2"
-          windowColor="bg-rose-400"
-          bottomColor="border-b-gray-600"
+          windowColor={windowColor}
+          bottomColor={bottomColor}
         />
 
         <TowerTwo
           xCoord="left-[75vw]"
-          windowColor="bg-gray-800"
-          bottomColor="border-blue-300"
-          borderColor="bg-blue-300"
-          icon={<SiSvelte size={20} className="text-blue-400" />}
+          windowColor={windowColor}
+          bottomColor={bottomColor}
+          borderColor={borderColor}
         />
         <BuildingFour
           xCoord="left-[36vw]"
-          windowColor="bg-orange-400"
-          bottomColor="border-b-orange-600"
-          icon={<SiReact size={20} className="text-black" />}
+          windowColor={windowColor}
+          bottomColor={bottomColor}
+          borderColor={borderColor}
         />
         <TreeBig xCoord="-right-2" />
         <TreeBig xCoord="-left-1" />
