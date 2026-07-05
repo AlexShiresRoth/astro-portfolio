@@ -30,7 +30,7 @@ const ProjectComponent = ({ project }: Props) => {
         </div>
       </div>
       <div className="flex md:flex-row flex-col gap-4 items-center p-4 py-8">
-        <div className="w-96">
+        <div className="w-full md:w-96">
           {project.optImage && (
             <img
               src={project.optImage?.width(450).url()}
