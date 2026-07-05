@@ -2,13 +2,15 @@ import { cn } from "../lib/utils";
 
 type Props = {
   xCoord: string;
+  scale?: string;
 };
 
 export const TreeBig = (props: Props) => {
   return (
     <span
-      className={cn("absolute bottom-0 h-24 w-5 bg-amber-900", {
+      className={cn("absolute bottom-0 h-24 w-5 bg-amber-900 origin-bottom", {
         [props.xCoord]: true,
+        [props.scale as string]: !!props.scale,
       })}
     >
       <span className="absolute -left-4 -top-4 h-14 w-16 rounded-full bg-emerald-500" />
@@ -22,8 +24,9 @@ export const TreeBig = (props: Props) => {
 export const TreeRegular = (props: Props) => {
   return (
     <span
-      className={cn("absolute bottom-0 h-16 w-4 bg-amber-800", {
+      className={cn("absolute bottom-0 h-16 w-4 bg-amber-800 origin-bottom", {
         [props.xCoord]: true,
+        [props.scale as string]: !!props.scale,
       })}
     >
       <span className="absolute -left-2 -top-4 h-10 w-10 rounded-full bg-emerald-500" />

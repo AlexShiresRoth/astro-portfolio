@@ -2,13 +2,11 @@
 import { createClient, type SanityDocument } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import AnimatedContainer from "../components/AnimatedContainer";
 import ContentContainer from "../components/ContentContainer";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navigation from "../components/Navigation";
 import Projects from "../components/Projects";
-import Tech from "../components/Tech";
 import WorkComponent from "../components/Work";
 import { sections } from "../constants";
 import Layout from "../layouts/Layout.astro";
@@ -82,10 +80,7 @@ const projectMap = projects.map((project) => {
   <main id={sections[0].name}>
     <Navigation client:only="react" />
     <Header header={headerContent?.[0]} />
-    <ContentContainer id="tech" isFirst={true}>
-      <Tech />
-    </ContentContainer>
-    <ContentContainer id={sections[1].name}>
+    <ContentContainer id={sections[1].name} isFirst>
       <Projects projects={projectMap} />
     </ContentContainer>
     <ContentContainer id={sections[2].name}>
@@ -94,6 +89,5 @@ const projectMap = projects.map((project) => {
     <ContentContainer id="footer">
       <Footer />
     </ContentContainer>
-    <AnimatedContainer />
   </main>
 </Layout>

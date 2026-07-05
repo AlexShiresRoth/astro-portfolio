@@ -7,15 +7,17 @@ type Props = {
 
 const ProjectComponent = ({ project }: Props) => {
   return (
-    <div className="flex flex-col items-center border-2 border-yellow-50/50 rounded">
-      {project.optImage && (
-        <img
-          src={project.optImage?.width(450).url()}
-          alt={project.title}
-          className="bg-center w-full h-full object-cover"
-        />
-      )}
-      <div className="flex flex-col gap-2 w-full text-yellow-50 p-4 bg-[#111]">
+    <div className="flex items-center border-2 gap-4 border-black p-4 rounded-lg bg-white/60">
+      <div className="max-w-96">
+        {project.optImage && (
+          <img
+            src={project.optImage?.width(450).url()}
+            alt={project.title}
+            className="bg-center w-full h-full object-cover rounded-lg"
+          />
+        )}
+      </div>
+      <div className="flex gap-2 w-full text-black">
         <div className="flex flex-col gap-2 w-full">
           <div className="flex items-center justify-between w-full">
             <a
@@ -38,11 +40,11 @@ const ProjectComponent = ({ project }: Props) => {
             )}
           </div>
           <div>
-            <p className="text-yellow-50 text-sm">{project.body}</p>
+            <p className="text-black/90 text-sm">{project.body}</p>
           </div>
           <div className="flex items-center gap-2 flex-wrap">
             {project.languages.map((language) => (
-              <span key={language} className="text-xs text-yellow-50/80">
+              <span key={language} className="text-xs text-black/80">
                 {language}
               </span>
             ))}

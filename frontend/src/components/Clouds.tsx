@@ -1,9 +1,10 @@
 export const CloudSmall = () => {
   return (
-    <div className="absolute bottom-[75vh] left-0 -z-0 block opacity-60 animate-cloud">
+    <div className="absolute bottom-[75vh] left-20 -z-0 block opacity-60">
       <div className="relative flex justify-center">
         <span className="absolute -bottom-14 left-9 h-24 w-24 rounded-full bg-slate-100" />
         <span className="absolute bottom-0 left-0 top-0 h-20 w-44 rounded-full bg-slate-100" />
+        <span className="absolute bottom-0 left-5 top-0 h-24 w-28 rounded-full bg-slate-100" />
       </div>
     </div>
   );
@@ -11,7 +12,7 @@ export const CloudSmall = () => {
 
 export const CloudMedium = () => {
   return (
-    <div className="absolute bottom-[70vh] left-10 -z-0 block opacity-60 animate-cloud">
+    <div className="absolute bottom-[70vh] left-28 -z-0 block opacity-60">
       <div className="relative flex justify-center">
         <span className="absolute -bottom-20 left-20 h-36 w-36 rounded-full bg-slate-100" />
         <span className="absolute bottom-0 left-0 top-0 h-28 w-72 rounded-full bg-slate-100" />
@@ -24,7 +25,7 @@ export const CloudMedium = () => {
 
 export const Cloud = () => {
   return (
-    <div className="absolute bottom-[60vh] -left-20 -z-0 block opacity-60 animate-cloud">
+    <div className="absolute bottom-[60vh] left-30 -z-0 block opacity-60">
       <div className="relative flex justify-center">
         <span className="absolute -bottom-20 left-7 h-28 w-28 rounded-full bg-slate-100" />
         <span className="absolute -bottom-20 left-24 h-28 w-28 rounded-full bg-slate-100" />
