@@ -11,11 +11,14 @@ const Content = ({ children, id }: Props) => {
   return (
     <section
       id={id}
-      className={cn("w-full flex flex-col items-center justify-center")}
+      className={cn(
+        "w-full flex flex-col items-center justify-center relative",
+      )}
     >
-      <div className={cn("w-11/12 md:w-3/4 md:pb-20 pb-10 text-yellow-50")}>
+      <div className="w-11/12 md:w-3/4 md:py-20 py-10 gap-8 flex flex-col">
         {children}
       </div>
+      <div className="h-0.5 w-full bg-black/50 mt-8 animate-growWidth absolute bottom-0 left-0" />
     </section>
   );
 };

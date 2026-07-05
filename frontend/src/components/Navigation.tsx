@@ -54,8 +54,8 @@ const Navigation = () => {
   return (
     <nav
       className={cn(
-        "w-screen fixed top-2 left-0 pt-8 z-50 flex flex-col items-center justify-center",
-        isScrolling && "pt-2 md:pt-4 transition-all top-0",
+        "w-screen fixed top-2 left-0 md:pt-8 pt-4 z-50 flex flex-col items-center justify-center",
+        isScrolling && "pt-2 md:pt-4 transition-all top-0 backdrop-blur-md",
       )}
     >
       <div className="flex w-11/12 md:w-3/4 gap-8">
@@ -73,7 +73,7 @@ const Navigation = () => {
       </div>
       <div
         className={cn(
-          "h-0.5 w-full bg-black/50 mt-8 animate-growWidth self-end",
+          "h-0.5 w-full bg-black/50 md:mt-8 mt-4 animate-growWidth self-end",
           isScrolling && "mt-2 md:mt-4",
         )}
       />

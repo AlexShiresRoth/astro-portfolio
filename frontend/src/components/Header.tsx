@@ -4,15 +4,17 @@ import Links from "./Links";
 
 const Header = ({ header }: { header: HeaderType }) => {
   return (
-    <header className="w-full flex flex-col justify-center items-center min-h-[85vh] relative overflow-x-hidden">
-      <div className="flex w-11/12 md:w-3/4 justify-center text-yellow-50 py-20">
+    <header className="w-full flex flex-col justify-center items-center min-h-screen md:min-h-[85vh] relative overflow-x-hidden">
+      <div className="flex w-11/12 md:w-3/4">
         <div className="flex flex-col gap-6 w-full">
           <div className="flex flex-col gap-2">
-            <h1 className="text-left text-7xl md:text-9xl font-firaSans animate-fadeIn2 text-black">
+            <h1 className="text-left text-6xl md:text-9xl font-firaSans animate-fadeIn2 text-black">
               {header.title}
             </h1>
           </div>
-          <p className="text-xl text-black/80">{header.subtitle}</p>
+          <p className="text-xl text-black/80 animate-fadeIn3">
+            {header.subtitle}
+          </p>
           <div className="flex flex-col gap-4">
             {header.contentList?.map((content) => (
               <p

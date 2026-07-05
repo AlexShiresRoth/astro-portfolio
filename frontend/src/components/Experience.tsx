@@ -11,7 +11,7 @@ const Experience = ({ work }: Props) => {
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="flex flex-col gap-2">
           {!work.link ? (
-            <p className="font-bold text-xl md:text-2xl text-yellow-50">
+            <p className="font-bold text-xl md:text-2xl text-black">
               {work.title}
             </p>
           ) : (
@@ -19,18 +19,18 @@ const Experience = ({ work }: Props) => {
               href={work.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-xl md:text-2xl text-yellow-50 hover:underline hover:italic hover:text-[rgba(255,100,100,1)] transition-all duration-300"
+              className="font-bold text-xl md:text-2xl text-black hover:underline hover:italic hover:text-amber-500 transition-all duration-300"
             >
               {work.title}
             </a>
           )}
           <div className="flex flex-col gap-2 mr-10">
-            <p className="text-[rgba(255,100,100,1)] flex items-center gap-1">
+            <p className="text-amber-500 flex items-center gap-1">
               <FaMapMarkerAlt size={16} /> {work.location}
             </p>
-            <p className="text-yellow-50">{work.dateRange}</p>
-            <p className="text-yellow-50">{work.description}</p>
-            <p className="text-yellow-50">{work.responsibilities}</p>
+            <p className="text-black/80">{work.dateRange}</p>
+            <p className="text-black/80">{work.description}</p>
+            <p className="text-black/80">{work.responsibilities}</p>
           </div>
         </div>
       </div>
