@@ -12,6 +12,7 @@ export default {
 		  fontFamily: {
 			sans: ["Inter", "sans-serif"],
 			robotoMono: ["var(--font-roboto-mono)", "sans-serif"],
+			firaSans: ["var(--font-fira-sans)", "sans-serif"],
 		  },
 		  boxShadow: {
 			'bottom-black': '5px 5px 0px 0px rgba(0, 0, 0, 1)',
@@ -31,62 +32,46 @@ export default {
 			},
 			cloud: {
 			  "0%": {
-				transform: "translateX(-55vw)",
+				transform: "translateX(-25vw)",
 			  },
 			  "100%": { transform: "translateX(115vw)" },
 			},
-			cloud2: {
-			  "0%": {
-				transform: "translateX(-25vw)",
-			  },
-			  "100%": { transform: "translateX(110vw)" },
-			},
-			cloudMobile: {
+			move: {
 			  "0%": {
 				transform: "translateX(-100vw)",
 			  },
-			  "100%": { transform: "translateX(155vw)" },
+			  "100%": { transform: "translateX(120vw)" },
 			},
-			move: {
-			  "0%": {
-				transform: "translateX(-1000px)",
-			  },
-			  "100%": { transform: "translateX(2000px)" },
-			},
-			move2: {
-			  "0%": {
-				transform: "translateX(-1000px)",
-			  },
-			  "100%": { transform: "translateX(2200px)" },
-			},
-			move3: {
+			moveReverse: {
 			  "0%": {
 				transform: "translateX(120vw)",
 			  },
-			  "100%": { transform: "translateX(-50vw)" },
+			  "100%": { transform: "translateX(-120vw)" },
 			},
-		
 			fadeIn: {
 				"0%": { opacity: "0" , },
 				"100%": { opacity: "1" ,  },
 			},
+			
+			growWidth: {
+				"0%": { maxWidth: "0%" },
+				"100%": { maxWidth: "100%" },
+			},
 		  },
 		  animation: {
 			wiggle: "wiggle 0.8s both",
-			move: "move 15s ease-in-out infinite alternate",
-			move2: "move2 20s ease-in-out infinite alternate",
-			move3: "move3 17s ease-in-out infinite alternate",
-			cloud: "cloud 180s ease-in-out infinite",
-			cloud2: "cloud2 190s ease-in-out infinite",
-			cloud3: "cloud 200s ease-in-out infinite",
-			cloudMobile1: "cloudMobile 80s ease-in-out infinite",
-			cloudMobile2: "cloudMobile 90s ease-in-out infinite",
-			cloudMobile3: "cloudMobile 100s ease-in-out infinite",
+			move: "move 60s ease-in-out infinite alternate",
+			cloud: "cloud 220s ease-in-out infinite",
 			fadeIn: "fadeIn 1.3s ease-in-out 0s both",
 			fadeIn2: "fadeIn 1.3s ease-in-out 0.1s both",
 			fadeIn3: "fadeIn 1.3s ease-in-out 0.2s both",
 			fadeIn4: "fadeIn 1.3s ease-in-out 0.3s both",
 			fadeIn5: "fadeIn 1.3s ease-in-out 0.4s both",
+			buildingsFadeIn: "fadeIn 1.3s ease-in-out 1s both",
+			treesFadeIn: "fadeIn 1.3s ease-in-out 1.6s both",
+			growWidth: "growWidth 1.3s ease-in-out 0s both",
+			moveReverse: "moveReverse 60s ease-in-out infinite alternate",
+			moveReverse2: "moveReverse 80s ease-in-out infinite alternate",
 		  },
 		},
 	

@@ -54,9 +54,8 @@ const Navigation = () => {
   return (
     <nav
       className={cn(
-        "w-screen fixed top-2 left-0 py-8 z-50 flex items-center justify-center",
-        isScrolling &&
-          "py-2 md:py-4 transition-all top-0 bg-[#111]/90 backdrop-blur-md",
+        "w-screen fixed top-2 left-0 md:pt-8 pt-4 z-50 flex flex-col items-center justify-center",
+        isScrolling && "pt-2 md:pt-4 transition-all top-0 backdrop-blur-md",
       )}
     >
       <div className="flex w-11/12 md:w-3/4 gap-8">
@@ -72,6 +71,12 @@ const Navigation = () => {
           </NavigationButton>
         ))}
       </div>
+      <div
+        className={cn(
+          "h-0.5 w-full bg-black/50 md:mt-8 mt-4 animate-growWidth self-end",
+          isScrolling && "mt-2 md:mt-4",
+        )}
+      />
     </nav>
   );
 };

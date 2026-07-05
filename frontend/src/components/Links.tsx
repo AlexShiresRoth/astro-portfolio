@@ -11,7 +11,7 @@ const Links = () => {
         rel="noopener noreferrer"
         className="hover:scale-110 transition-all duration-300 flex items-center"
       >
-        <FaGithub size={32} />
+        <FaGithub size={22} />
       </a>
       <a
         href="https://www.linkedin.com/in/alex-rothenberg-603112110/"
@@ -19,13 +19,13 @@ const Links = () => {
         rel="noopener noreferrer"
         className="hover:scale-110 transition-all duration-300 flex items-center"
       >
-        <FaLinkedin size={32} />
+        <FaLinkedin size={22} />
       </a>
       <a
         href="mailto:hello@alexr.dev"
         className="hover:scale-110 transition-all duration-300 flex items-center"
       >
-        <MdMail size={40} />
+        <MdMail size={26} />
       </a>
     </>
   );

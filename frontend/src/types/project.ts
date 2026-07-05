@@ -26,5 +26,6 @@ export type Work = {
 export type Header = {
   _id: string;
   title: string;
+  subtitle: string;
   contentList: string[];
 };

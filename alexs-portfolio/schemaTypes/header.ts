@@ -11,6 +11,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+    }),
+    defineField({
       name: 'contentList',
       title: 'Content List',
       type: 'array',

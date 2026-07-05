@@ -121,7 +121,6 @@ export const DoorWayThree = (
 );
 
 type BuildingProps = {
-  xCoord: string;
   windowColor: string;
   bottomColor: string;
   borderColor?: string;
@@ -129,11 +128,7 @@ type BuildingProps = {
 };
 
 export const BuildingOne = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 z-0", {
-      [props.xCoord]: true,
-    })}
-  >
+  <div className="z-0">
     <span className="relative ml-4 flex h-64 w-20 flex-col gap-1 bg-black p-1">
       <span className="absolute bottom-[100%] left-0 h-6 w-full rounded-tr-full bg-black" />
       <WindowGrid color={props.windowColor} bottomColor={props.bottomColor} />
@@ -148,11 +143,7 @@ export const BuildingOne = (props: BuildingProps) => (
 );
 
 export const BuildingTwo = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 z-0", {
-      [props.xCoord]: true,
-    })}
-  >
+  <div className="z-0">
     <span
       className={cn(
         "relative ml-8 flex h-60 w-16 flex-col items-center  border-t-4  bg-black p-2",
@@ -172,11 +163,7 @@ export const BuildingTwo = (props: BuildingProps) => (
 );
 
 export const BuildingThree = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 z-0", {
-      [props.xCoord]: true,
-    })}
-  >
+  <div className="z-0">
     <span className="relative flex h-48 w-20 flex-col  gap-2  bg-black p-2">
       <span className="absolute bottom-[100%] left-4 h-4 w-1 border-t-4 border-t-red-700 bg-black animate-pulse duration-300 brightness-200" />
       <WindowColumns
@@ -191,11 +178,7 @@ export const BuildingThree = (props: BuildingProps) => (
 );
 
 export const BuildingFour = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 flex items-end z-0", {
-      [props.xCoord]: true,
-    })}
-  >
+  <div className="flex items-end z-0">
     <div className="flex w-10 flex-col items-end">
       <span className="flex h-16 w-1/2 flex-col rounded-tl-full bg-black p-2">
         <span
@@ -264,17 +247,13 @@ export const BuildingFour = (props: BuildingProps) => (
 );
 
 export const BuildingFive = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 z-0", {
-      [props.xCoord]: true,
-    })}
-  >
+  <div className="z-0">
     <div className="flex flex-col items-end">
-      <span className="relative mr-6 flex h-10 w-14 flex-col items-end gap-2 rounded-t-lg border-t-8 border-t-slate-400 bg-slate-600 p-2">
-        <span className="block h-1 w-3/4 rounded bg-slate-400" />
-        <span className="block h-1 w-3/4 rounded bg-slate-400" />
+      <span className="relative mr-6 flex h-10 w-14 flex-col items-end gap-2 rounded-t-lg border-t-8 border-t-slate-700 bg-slate-800 p-2">
+        <span className="block h-1 w-3/4 rounded bg-slate-700" />
+        <span className="block h-1 w-3/4 rounded bg-slate-700" />
       </span>
-      <span className="relative flex h-64 w-32 flex-col gap-2 rounded-t-md  border-t-8 border-t-slate-400  bg-black p-2">
+      <span className="relative flex h-64 w-32 flex-col gap-2 rounded-t-md  border-t-8 border-t-slate-700  bg-black p-2">
         <div className="absolute bottom-[100%] flex flex-col left-6">
           <span className="bg-yellow-300 h-1 w-1 animate-pulse duration-500 brightness-200"></span>
           <span className="h-3 w-1 bg-black" />
@@ -296,23 +275,19 @@ export const BuildingFive = (props: BuildingProps) => (
 );
 
 export const BuildingSix = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 flex items-end z-0", {
-      [props.xCoord]: true,
-    })}
-  >
+  <div className="flex items-end z-0">
     <div className="flex w-28 flex-col items-center">
       <span className="relative flex h-56 w-full flex-col items-center  gap-2 bg-black p-2">
         <WindowColumns
-          color="bg-emerald-400"
-          bottomColor="border-b-emerald-600"
+          color={props.windowColor}
+          bottomColor={props.bottomColor}
           rows={7}
           columns={4}
         />
         <DoorWayThree
-          accent="bg-emerald-500"
-          color="bg-emerald-400"
-          bottomColor="border-b-emerald-600"
+          accent={props.borderColor as string}
+          color={props.windowColor}
+          bottomColor={props.bottomColor}
         />
       </span>
     </div>
@@ -320,15 +295,11 @@ export const BuildingSix = (props: BuildingProps) => (
 );
 
 export const Tower = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 z-0", {
-      [props.xCoord]: true,
-    })}
-  >
-    <span className="relative flex h-[287px] w-20 flex-col  gap-2  border-t-4 border-t-gray-500 bg-black py-2">
+  <div className="z-0">
+    <span className="relative flex h-[287px] w-20 flex-col  gap-2 bg-black py-2">
       <span
         className={cn(
-          "absolute bottom-[100%] left-0 h-16 w-[100%] rounded-tl-full border-b-4 border-t-4 flex items-center justify-center bg-gray-800",
+          "absolute bottom-[100%] left-0 h-16 w-[100%] rounded-tl-full border-b-4 flex items-center justify-center bg-black",
           {
             [props.borderColor as string]: true,
           },
@@ -336,8 +307,8 @@ export const Tower = (props: BuildingProps) => (
       >
         {props.icon && <div className="-mr-2">{props.icon}</div>}
       </span>
-      <span className="absolute bottom-[100%] right-0 h-20 w-1 border-t-4 border-t-white bg-gray-400" />
-      <span className="absolute bottom-[100%] right-2 h-20 w-1 border-t-4 border-t-orange-500 bg-gray-400" />
+      <span className="absolute bottom-[100%] right-0 h-20 w-1 border-t-4 border-t-yellow-50 bg-gray-700" />
+      <span className="absolute bottom-[100%] right-2 h-20 w-1 border-t-4 border-t-orange-500 bg-gray-700" />
       <WindowColumns
         color={props.windowColor}
         bottomColor={props.bottomColor}
@@ -349,18 +320,14 @@ export const Tower = (props: BuildingProps) => (
 );
 
 export const TowerTwo = (props: BuildingProps) => (
-  <div
-    className={cn("absolute bottom-0 z-0 flex flex-col items-center", {
-      [props.xCoord]: true,
-    })}
-  >
-    <span className="h-0.5 w-1 bg-blue-400 animate-ping duration-1000"></span>
+  <div className="z-0 flex flex-col items-center">
+    <span className="h-0.5 w-1 bg-red-400 animate-ping duration-1000"></span>
     <span className="h-9 w-1 bg-black"></span>
-    <span className="h-6 w-1/4 border-t-2 border-t-blue-400 bg-black"></span>
-    <span className="h-10 flex items-center justify-center w-3/4 border-t-2 border-t-blue-400 bg-black">
+    <span className="h-6 w-1/4 border-t-2 border-t-slate-700 bg-black"></span>
+    <span className="h-10 flex items-center justify-center w-3/4 border-t-2 border-t-slate-700 bg-black">
       {props.icon && <div className="text-blue-400">{props.icon}</div>}
     </span>
-    <span className="relative flex h-[387px] w-24 flex-col gap-2  border-t-4 border-t-gray-500 bg-black py-2">
+    <span className="relative flex h-[387px] w-24 flex-col gap-2  border-t-4 border-t-slate-700 bg-black py-2">
       <WindowColumns
         color={props.windowColor}
         bottomColor={props.bottomColor}
