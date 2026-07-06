@@ -1,4 +1,5 @@
 import { ArrowUpRight, Lock } from "lucide-react";
+import { cn } from "../lib/utils";
 import type { Project } from "../types/project";
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 
 const ProjectComponent = ({ project }: Props) => {
   return (
-    <div className="flex flex-col border-2 border-black rounded-lg bg-white/60">
+    <div className="flex flex-col justify-between border-2 border-black rounded-lg bg-white/60">
       <div className="p-4 flex items-center justify-between border-b border-black gap-2">
         {project.sourceCodeLink ? (
           <a
@@ -24,12 +25,12 @@ const ProjectComponent = ({ project }: Props) => {
           </>
         )}
         <div className="flex gap-2 items-center">
-          <span className="h-2 w-2 rounded-full bg-black block" />
-          <span className="h-2 w-2 rounded-full bg-black block" />
-          <span className="h-2 w-2 rounded-full bg-black block" />
+          <span className="h-1 w-1 rounded-full bg-black block" />
+          <span className="h-1 w-1 rounded-full bg-black block" />
+          <span className="h-1 w-1 rounded-full bg-black block" />
         </div>
       </div>
-      <div className="flex md:flex-row flex-col gap-4 items-center p-4 py-8">
+      <div className="flex md:flex-row flex-col gap-4 items-center p-4">
         <div className="w-full md:w-96">
           {project.optImage && (
             <img
@@ -57,7 +58,12 @@ const ProjectComponent = ({ project }: Props) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between gap-2 flex-wrap p-4 border-t border-black">
+      <div
+        className={cn(
+          "flex items-center gap-4 flex-wrap p-4 border-t border-black",
+          project.languages.length > 3 ? "justify-between" : "justify-start",
+        )}
+      >
         {project.languages.map((language) => (
           <span key={language} className="text-xs text-black/80">
             {language}
