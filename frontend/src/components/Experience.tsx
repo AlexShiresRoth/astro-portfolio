@@ -29,8 +29,13 @@ const Experience = ({ work }: Props) => {
               <FaMapMarkerAlt size={16} /> {work.location}
             </p>
             <p className="text-black/80">{work.dateRange}</p>
-            <p className="text-black/80">{work.description}</p>
-            <p className="text-black/80">{work.responsibilities}</p>
+            <div className="flex flex-col gap-2">
+              {work.description.map((description) => (
+                <p className="text-black/80" key={description}>
+                  {description}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
