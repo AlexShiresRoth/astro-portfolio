@@ -52,7 +52,10 @@ export default {
 				"0%": { opacity: "0" , },
 				"100%": { opacity: "1" ,  },
 			},
-			
+			fadeInAndUp: {
+				"0%": { opacity: "0" , transform: "translateY(30%)" },
+				"100%": { opacity: "1" , transform: "translateY(0%)" },
+			},
 			growWidth: {
 				"0%": { maxWidth: "0%" },
 				"100%": { maxWidth: "100%" },
@@ -72,6 +75,7 @@ export default {
 			growWidth: "growWidth 1.3s ease-in-out 0s both",
 			moveReverse: "moveReverse 60s ease-in-out infinite alternate",
 			moveReverse2: "moveReverse 80s ease-in-out infinite alternate",
+			fadeInAndUp: "fadeInAndUp 1.6s ease-in-out 0s both",
 		  },
 		},
 	

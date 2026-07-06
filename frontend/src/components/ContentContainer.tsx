@@ -12,7 +12,7 @@ const Content = ({ children, id }: Props) => {
     <section
       id={id}
       className={cn(
-        "w-full flex flex-col items-center justify-center relative",
+        "w-full flex flex-col items-center justify-center relative animate-fadeInAndUp",
       )}
     >
       <div className="w-11/12 md:w-3/4 md:py-20 py-10 gap-8 flex flex-col">

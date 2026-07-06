@@ -49,10 +49,10 @@ const WORK_QUERY = `*[_type == "work"]{
   title,
   dateRange,
   description,
-  responsibilities,
   location,
   link,
 }`;
+
 const imageBuilder = imageUrlBuilder(client);
 
 function buildImageUrl(source: SanityImageSource) {

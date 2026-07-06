@@ -16,11 +16,10 @@ export type Work = {
   order: number;
   title: string;
   dateRange: string;
-  description: string;
-  responsibilities: string;
+  description: string[];
   location: string;
   Projects: Project[];
-  link: string;
+  link?: string;
 };
 
 export type Header = {
