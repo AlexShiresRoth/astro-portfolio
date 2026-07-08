@@ -25,9 +25,9 @@ const ProjectComponent = ({ project }: Props) => {
           </>
         )}
         <div className="flex gap-2 items-center">
-          <span className="h-2 w-2 rounded-full bg-black block" />
-          <span className="h-2 w-2 rounded-full bg-black block" />
-          <span className="h-2 w-2 rounded-full bg-black block" />
+          <span className="h-1 w-1 rounded-full bg-black block" />
+          <span className="h-1 w-1 rounded-full bg-black block" />
+          <span className="h-1 w-1 rounded-full bg-black block" />
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-4 md:gap-12 items-start p-4 py-8">
