@@ -11,15 +11,13 @@ const Experience = ({ work }: Props) => {
       <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="flex flex-col gap-2">
           {!work.link ? (
-            <p className="font-bold text-xl md:text-2xl text-black">
-              {work.title}
-            </p>
+            <p className="text-xl md:text-2xl text-black">{work.title}</p>
           ) : (
             <a
               href={work.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold text-xl md:text-2xl text-black hover:underline hover:italic hover:text-amber-500 transition-all duration-300"
+              className="text-xl md:text-2xl text-black hover:underline hover:italic hover:text-amber-500 transition-all duration-300"
             >
               {work.title}
             </a>
