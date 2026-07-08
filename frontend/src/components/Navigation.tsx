@@ -58,7 +58,7 @@ const Navigation = () => {
         isScrolling && "pt-2 md:pt-4 transition-all top-0 backdrop-blur-md",
       )}
     >
-      <div className="flex w-11/12 md:w-3/4 gap-8">
+      <div className="flex w-11/12 md:w-3/4 gap-8 max-w-6xl">
         {sections.map((navItem, i) => (
           <NavigationButton
             index={i}

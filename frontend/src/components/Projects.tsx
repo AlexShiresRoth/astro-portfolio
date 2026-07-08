@@ -2,16 +2,32 @@ import type { Project } from "../types/project";
 import ProjectComponent from "./Project";
 import Subheading from "./Subheading";
 
-const Projects = ({ projects }: { projects: Project[] }) => {
+const Projects = ({
+  personalProjects,
+  professionalProjects,
+}: {
+  personalProjects: Project[];
+  professionalProjects: Project[];
+}) => {
   return (
-    <>
-      <Subheading text="Projects" />
-      <div className="flex flex-col gap-4 md:grid md:grid-cols-2">
-        {projects.map((project) => {
-          return <ProjectComponent key={project._id} project={project} />;
-        })}
+    <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-4">
+        <Subheading text="Personal Work" />
+        <div className="flex flex-col gap-4">
+          {personalProjects.map((project) => {
+            return <ProjectComponent key={project._id} project={project} />;
+          })}
+        </div>
       </div>
-    </>
+      <div className="flex flex-col gap-4">
+        <Subheading text="Professional Work" />
+        <div className="flex flex-col gap-4">
+          {professionalProjects.map((project) => {
+            return <ProjectComponent key={project._id} project={project} />;
+          })}
+        </div>
+      </div>
+    </div>
   );
 };
 

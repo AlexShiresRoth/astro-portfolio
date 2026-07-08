@@ -4,11 +4,11 @@ export const sections = [
     title: "Home",
   },
   {
-    name: "projects",
-    title: "Projects",
+    name: "work",
+    title: "Work",
   },
   {
-    name: "work",
+    name: "experience",
     title: "Experience",
   },
 ];

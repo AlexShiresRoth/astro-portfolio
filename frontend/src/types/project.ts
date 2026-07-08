@@ -2,11 +2,16 @@ import type { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 
 export type Project = {
   _id: string;
-  body: string;
-  languages: string[];
+  problem?: string;
+  solution?: string;
+  contributions?: string[];
+  overview?: string;
+  code: string[];
+  type: "personal" | "professional";
   liveLink: string;
   mainImage: { _type: string; asset: [Object] };
   optImage?: ImageUrlBuilder;
+  order: number;
   sourceCodeLink: string;
   title: string;
 };

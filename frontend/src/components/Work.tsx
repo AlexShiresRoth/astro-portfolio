@@ -5,7 +5,7 @@ import Subheading from "./Subheading";
 const WorkComponent = ({ workMap }: { workMap: Work[] }) => {
   return (
     <>
-      <Subheading text="Work Experience" />
+      <Subheading text="Experience" />
       {workMap.map((work) => (
         <Experience key={work._id} work={work} />
       ))}

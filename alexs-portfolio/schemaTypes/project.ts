@@ -16,6 +16,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    }),
+    defineField({
       name: 'sourceCodeLink',
       title: 'Source Code Link',
       type: 'string',
@@ -29,8 +34,8 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'languages',
-      title: 'Languages',
+      name: 'code',
+      title: 'Code',
       type: 'array',
       of: [{type: 'string'}],
     }),
@@ -40,9 +45,36 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
+      name: 'problem',
+      title: 'Problem',
       type: 'text',
+    }),
+    defineField({
+      name: 'solution',
+      title: 'Solution',
+      type: 'text',
+    }),
+    defineField({
+      name: 'overview',
+      title: 'Overview',
+      type: 'text',
+    }),
+    defineField({
+      name: 'contributions',
+      title: 'Contributions',
+      type: 'array',
+      of: [{type: 'string'}],
+    }),
+    defineField({
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Personal', value: 'personal'},
+          {title: 'Professional', value: 'professional'},
+        ],
+      },
     }),
   ],
 })
