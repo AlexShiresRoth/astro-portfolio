@@ -165,7 +165,10 @@ export const BuildingTwo = (props: BuildingProps) => (
 export const BuildingThree = (props: BuildingProps) => (
   <div className="z-0">
     <span className="relative flex h-48 w-20 flex-col  gap-2  bg-black p-2">
-      <span className="absolute bottom-[100%] left-4 h-4 w-1 border-t-4 border-t-red-700 bg-black animate-pulse duration-300 brightness-200" />
+      <div className="absolute bottom-[100%] left-4 w-full flex flex-col items-center justify-center">
+        <span className="w-1 h-1 bg-red-700 animate-pulse duration-300 brightness-200" />
+        <span className="h-4 w-1 bg-black" />
+      </div>
       <WindowColumns
         color={props.windowColor}
         bottomColor={props.bottomColor}
@@ -296,7 +299,7 @@ export const BuildingSix = (props: BuildingProps) => (
 
 export const Tower = (props: BuildingProps) => (
   <div className="z-0">
-    <span className="relative flex h-[287px] w-20 flex-col  gap-2 bg-black py-2">
+    <span className="relative flex h-[287px] w-20 flex-col gap-2 bg-black py-2">
       <span
         className={cn(
           "absolute bottom-[100%] left-0 h-16 w-[100%] rounded-tl-full border-b-4 flex items-center justify-center bg-black",

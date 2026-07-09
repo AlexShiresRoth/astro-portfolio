@@ -30,18 +30,18 @@ const ProjectComponent = ({ project }: Props) => {
           <span className="h-1 w-1 rounded-full bg-black block" />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-4 md:gap-12 items-start p-4 py-8">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start p-4 py-8">
         <a
           href={project.liveLink}
           target="__blank"
           rel="noopener noreferrer"
-          className="w-full"
+          className="w-full max-w-md"
         >
           {project.optImage && (
             <img
-              src={project.optImage?.width(1250).url()}
+              src={project.optImage?.width(850).url()}
               alt={project.title}
-              className="bg-center w-full h-full object-cover rounded-lg"
+              className="bg-center hover:shadow-none transition-all duration-300 w-full h-full object-cover border-2 border-black shadow-[10px_10px_0px_rgba(0,0,0,1)] rounded-lg"
             />
           )}
         </a>
@@ -53,7 +53,7 @@ const ProjectComponent = ({ project }: Props) => {
                   href={project.liveLink}
                   target="__blank"
                   rel="noopener noreferrer"
-                  className="text-xl hover:underline flex items-center gap-1"
+                  className="text-xl hover:underline font-semibold flex items-center gap-1"
                 >
                   {project.title}{" "}
                   <span>
@@ -61,7 +61,7 @@ const ProjectComponent = ({ project }: Props) => {
                   </span>
                 </a>
               ) : (
-                <h2 className="text-xl">{project.title}</h2>
+                <h2 className="text-xl font-semibold">{project.title}</h2>
               )}
             </div>
             <div className="flex flex-col gap-4">
