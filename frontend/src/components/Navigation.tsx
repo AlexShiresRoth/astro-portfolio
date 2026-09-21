@@ -62,7 +62,7 @@ const Navigation = () => {
         <div>
           <p className="font-semibold text-sm">Alex Rothenberg</p>
         </div>
-        <div className="flex gap-8 items-center">
+        <div className="flex gap-2 md:gap-8 items-center">
           {sections.map((navItem, i) => (
             <NavigationButton
               index={i}
@@ -75,10 +75,12 @@ const Navigation = () => {
             </NavigationButton>
           ))}
         </div>
-        <div>
-          <button>
-            <p>Contact</p>
-          </button>
+        <div className="hidden md:block">
+          <a href="mailto:alexrothenberg10@gmail.com">
+            <p className="text-sm underline underline-offset-4 decoration-amber-700">
+              Contact
+            </p>
+          </a>
         </div>
       </div>
 

@@ -14,7 +14,7 @@ const Header = ({ header }: { header: HeaderType }) => {
       <div className="flex w-11/12 md:w-3/4 max-w-6xl">
         <div className="flex flex-col gap-6 w-full">
           <div className="flex flex-col gap-2">
-            <h1 className="text-left text-7xl md:text-8xl font-bold font-firaSans animate-fadeIn2 text-black leading-none flex flex-wrap gap-2">
+            <h1 className="text-left text-5xl md:text-8xl font-bold font-firaSans animate-fadeIn2 text-black leading-none flex flex-wrap gap-2">
               {titleMap.map((item) => (
                 <span
                   key={item.word}
