@@ -54,27 +54,38 @@ const Navigation = () => {
   return (
     <nav
       className={cn(
-        "w-screen fixed top-2 left-0 md:pt-8 pt-4 z-50 flex flex-col items-center justify-center",
-        isScrolling && "pt-2 md:pt-4 transition-all top-0 backdrop-blur-md",
+        "w-screen fixed top-0 left-0 z-50 flex flex-col items-center justify-center pt-4 transition-all duration-300 font-firaSans",
+        isScrolling && "backdrop-blur-md pt-2",
       )}
     >
-      <div className="flex w-11/12 md:w-3/4 gap-8 max-w-6xl">
-        {sections.map((navItem, i) => (
-          <NavigationButton
-            index={i}
-            key={navItem.name}
-            callback={() => handleNavigation(i)}
-            isActive={navIndex === i}
-            isScrolling={isScrolling}
-          >
-            {navItem.title}
-          </NavigationButton>
-        ))}
+      <div className="flex justify-between items-center w-11/12 md:w-3/4 gap-8 max-w-6xl">
+        <div>
+          <p className="font-semibold text-sm">Alex Rothenberg</p>
+        </div>
+        <div className="flex gap-8 items-center">
+          {sections.map((navItem, i) => (
+            <NavigationButton
+              index={i}
+              key={navItem.name}
+              callback={() => handleNavigation(i)}
+              isActive={navIndex === i}
+              isScrolling={isScrolling}
+            >
+              {navItem.title}
+            </NavigationButton>
+          ))}
+        </div>
+        <div>
+          <button>
+            <p>Contact</p>
+          </button>
+        </div>
       </div>
+
       <div
         className={cn(
-          "h-0.5 w-full bg-black/50 md:mt-8 mt-4 animate-growWidth self-end",
-          isScrolling && "mt-2 md:mt-4",
+          "h-0.5 w-full bg-black/5 animate-growWidth self-end mt-4",
+          isScrolling && "mt-2",
         )}
       />
     </nav>

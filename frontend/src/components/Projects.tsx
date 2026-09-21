@@ -12,16 +12,12 @@ const Projects = ({
   return (
     <div className="flex flex-col gap-12">
       <div className="flex flex-col gap-4">
-        <Subheading text="Personal Work" />
-        <div className="flex flex-col gap-8">
+        <Subheading text="Selected Work" />
+        <div className="w-full border-b border-black/5" />
+        <div className="flex flex-col gap-2">
           {personalProjects.map((project) => {
             return <ProjectComponent key={project._id} project={project} />;
           })}
-        </div>
-      </div>
-      <div className="flex flex-col gap-4">
-        <Subheading text="Professional Work" />
-        <div className="flex flex-col gap-8">
           {professionalProjects.map((project) => {
             return <ProjectComponent key={project._id} project={project} />;
           })}

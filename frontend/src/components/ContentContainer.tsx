@@ -19,7 +19,7 @@ const Content = ({ children, id, isLast = false }: Props) => {
         {children}
       </div>
       {!isLast && (
-        <div className="h-0.5 w-full bg-black/50 mt-8 animate-growWidth absolute bottom-0 left-0" />
+        <div className="h-0.5 w-full bg-black/5 mt-8 animate-growWidth absolute bottom-0 left-0" />
       )}
     </section>
   );
