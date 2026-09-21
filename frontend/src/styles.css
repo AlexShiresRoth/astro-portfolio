@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-amber-500/50 overflow-x-hidden;
+    @apply bg-amber-700/10 overflow-x-hidden;
   }
 }
