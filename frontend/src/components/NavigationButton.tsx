@@ -17,7 +17,7 @@ const NavigationButton = ({
     <button
       className={cn(
         "transition-all duration-300 text-sm",
-        isActive ? "text-amber-700" : "text-black/50",
+        isActive && "text-accent",
         isScrolling && "md:p-1 md:text-sm",
         index === 0 && "animate-fadeIn",
         index === 1 && "animate-fadeIn2",

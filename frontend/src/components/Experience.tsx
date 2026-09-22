@@ -10,11 +10,11 @@ const Experience = ({ work }: Props) => {
     <div className="flex flex-col gap-4" key={work._id}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <p className="text-amber-700 flex items-center gap-1 text-sm ">
+          <p className="text-accent flex items-center gap-1 text-sm">
             <FaMapMarkerAlt size={12} /> {work.location}
           </p>
         </div>
-        <p className="text-black/50 text-sm">{work.dateRange}</p>
+        <p className="text-sm">{work.dateRange}</p>
       </div>
       {!work.link ? (
         <p className="text-xl md:text-2xl">{work.title}</p>
@@ -23,16 +23,14 @@ const Experience = ({ work }: Props) => {
           href={work.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xl md:text-2xl text-black hover:underline hover:italic transition-all duration-300"
+          className="text-xl md:text-2xl hover:underline hover:italic transition-all duration-300"
         >
           {work.title}
         </a>
       )}
       <div className="flex flex-col gap-4">
         {work.description.map((description) => (
-          <p className="text-black/50" key={description}>
-            {description}
-          </p>
+          <p key={description}>{description}</p>
         ))}
       </div>
     </div>

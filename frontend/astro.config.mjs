@@ -31,6 +31,12 @@ export default defineConfig({
         provider: fontProviders.google(),
         weights: [800,700,600,500,400],
       },
+      {
+        name: "Hanken Grotesk",
+        cssVariable: "--font-hanken-grotesk",
+        provider: fontProviders.google(),
+        weights: [900,800,700,600,500,400,300,200,100],
+      }
     ],
   },
 });

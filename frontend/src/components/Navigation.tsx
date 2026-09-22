@@ -77,7 +77,7 @@ const Navigation = () => {
         </div>
         <div className="hidden md:block">
           <a href="mailto:alexrothenberg10@gmail.com">
-            <p className="text-sm underline underline-offset-4 decoration-amber-700">
+            <p className="text-sm underline decoration-emerald-600 underline-offset-8">
               Contact
             </p>
           </a>
@@ -85,10 +85,7 @@ const Navigation = () => {
       </div>
 
       <div
-        className={cn(
-          "h-0.5 w-full bg-black/5 animate-growWidth self-end mt-4",
-          isScrolling && "mt-2",
-        )}
+        className={cn("styled-border self-end mt-4", isScrolling && "mt-2")}
       />
     </nav>
   );

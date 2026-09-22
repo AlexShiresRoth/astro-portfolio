@@ -13,13 +13,25 @@ const Projects = ({
     <div className="flex flex-col gap-12">
       <div className="flex flex-col gap-4">
         <Subheading text="Selected Work" />
-        <div className="w-full border-b border-black/5" />
+        <div className="w-full border-b border-stone-50/5" />
         <div className="flex flex-col gap-2">
-          {personalProjects.map((project) => {
-            return <ProjectComponent key={project._id} project={project} />;
+          {personalProjects.map((project, index) => {
+            return (
+              <ProjectComponent
+                key={project._id}
+                project={project}
+                index={index}
+              />
+            );
           })}
-          {professionalProjects.map((project) => {
-            return <ProjectComponent key={project._id} project={project} />;
+          {professionalProjects.map((project, index) => {
+            return (
+              <ProjectComponent
+                key={project._id}
+                project={project}
+                index={index + personalProjects.length}
+              />
+            );
           })}
         </div>
       </div>

@@ -13,6 +13,7 @@ export default {
 			sans: ["Inter", "sans-serif"],
 			robotoMono: ["var(--font-roboto-mono)", "sans-serif"],
 			firaSans: ["var(--font-fira-sans)", "sans-serif"],
+			hankenGrotesk: ["var(--font-hanken-grotesk)", "sans-serif"],
 		  },
 		  boxShadow: {
 			'bottom-black': '5px 5px 0px 0px rgba(0, 0, 0, 1)',

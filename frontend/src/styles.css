@@ -3,7 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  .text-accent {
+    @apply text-emerald-600;
+  }
+  .styled-border {
+    @apply h-0.5 w-full bg-stone-50/5 animate-growWidth;
+  }
   body {
-    @apply bg-amber-700/10 overflow-x-hidden;
+    @apply bg-stone-950 overflow-x-hidden text-stone-200 font-hankenGrotesk;
   }
 }

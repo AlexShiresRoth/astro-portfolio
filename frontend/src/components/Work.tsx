@@ -8,7 +8,7 @@ const WorkComponent = ({ workMap }: { workMap: Work[] }) => {
       <Subheading text="Experience" />
       <div className="flex flex-col gap-12">
         {workMap.map((work) => (
-          <div className={"border-t border-black/5 pt-8"} key={work._id}>
+          <div className={"border-t border-stone-50/5 pt-8"} key={work._id}>
             <Experience key={work._id} work={work} />
           </div>
         ))}
