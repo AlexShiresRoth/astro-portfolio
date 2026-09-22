@@ -9,7 +9,7 @@ const Links = () => {
         href="https://github.com/AlexShiresRoth"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:scale-110 transition-all duration-300 flex items-center"
+        className="hover:scale-110 transition-all duration-300 flex items-center hover:text-accent"
       >
         <FaGithub size={22} />
       </a>
@@ -17,13 +17,13 @@ const Links = () => {
         href="https://www.linkedin.com/in/alex-rothenberg-603112110/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:scale-110 transition-all duration-300 flex items-center"
+        className="hover:scale-110 transition-all duration-300 flex items-center hover:text-accent"
       >
         <FaLinkedin size={22} />
       </a>
       <a
         href="mailto:hello@alexr.dev"
-        className="hover:scale-110 transition-all duration-300 flex items-center"
+        className="hover:scale-110 transition-all duration-300 flex items-center hover:text-accent"
       >
         <MdMail size={26} />
       </a>
