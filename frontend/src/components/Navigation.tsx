@@ -3,7 +3,7 @@ import { sections } from "../constants";
 import { cn } from "../lib/utils";
 import NavigationButton from "./NavigationButton";
 
-const Navigation = () => {
+const Navigation = ({ currentPath }: { currentPath: string }) => {
   const [navIndex, setNavIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -60,20 +60,23 @@ const Navigation = () => {
     >
       <div className="flex justify-between items-center w-11/12 md:w-3/4 gap-8 max-w-6xl">
         <div>
-          <p className="font-semibold text-sm">Alex Rothenberg</p>
+          <a href="/" className="font-semibold text-sm">
+            Alex Rothenberg
+          </a>
         </div>
         <div className="flex gap-2 md:gap-8 items-center">
-          {sections.map((navItem, i) => (
-            <NavigationButton
-              index={i}
-              key={navItem.name}
-              callback={() => handleNavigation(i)}
-              isActive={navIndex === i}
-              isScrolling={isScrolling}
-            >
-              {navItem.title}
-            </NavigationButton>
-          ))}
+          {currentPath === "home" &&
+            sections.map((navItem, i) => (
+              <NavigationButton
+                index={i}
+                key={navItem.name}
+                callback={() => handleNavigation(i)}
+                isActive={navIndex === i}
+                isScrolling={isScrolling}
+              >
+                {navItem.title}
+              </NavigationButton>
+            ))}
         </div>
         <div className="hidden md:block">
           <a href="mailto:alexrothenberg10@gmail.com">

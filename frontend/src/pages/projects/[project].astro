@@ -1,0 +1,70 @@
+---
+import type { SanityDocument } from "@sanity/client";
+import ContentContainer from "../../components/ContentContainer";
+import Footer from "../../components/Footer";
+import Navigation from "../../components/Navigation";
+import ProjectBody from "../../components/ProjectBody";
+import ProjectDetails from "../../components/ProjectDetails";
+import ProjectFooter from "../../components/ProjectFooter";
+import ProjectHeader from "../../components/ProjectHeader";
+import Layout from "../../layouts/Layout.astro";
+import {
+  buildImageUrl,
+  client,
+  PERSONAL_PROJECT_QUERY,
+  PROFESSIONAL_PROJECT_QUERY,
+} from "../../lib/sanity";
+import "../../styles.css";
+import type { Project } from "../../types/project";
+
+export async function getStaticPaths() {
+  const personalProjects = await client.fetch<SanityDocument<Project[]>>(
+    PERSONAL_PROJECT_QUERY,
+  );
+  const professionalProjects = await client.fetch<SanityDocument<Project[]>>(
+    PROFESSIONAL_PROJECT_QUERY,
+  );
+  return [...personalProjects, ...professionalProjects].map((project) => ({
+    params: {
+      project: project.slug.current,
+    },
+  }));
+}
+
+const { project } = Astro.params;
+
+const projectData = await client.fetch<SanityDocument<Project>>(
+  `*[_type == "project" && slug.current == "${project}"][0]`,
+);
+
+const nextProject = await client.fetch<SanityDocument<Project>>(
+  `*[_type == "project" && order == ${projectData.order + 1}][0]`,
+);
+
+const previousProject = await client.fetch<SanityDocument<Project>>(
+  `*[_type == "project" && order == ${projectData.order - 1}][0]`,
+);
+
+const optImage = buildImageUrl(projectData.mainImage);
+
+const projectWithImage = {
+  ...projectData,
+  optImage,
+};
+---
+
+<Layout>
+  <Navigation client:only="react" currentPath="project" />
+  <main>
+    <ProjectHeader project={projectWithImage} />
+    <ProjectDetails project={projectWithImage} />
+    <ProjectBody project={projectWithImage} />
+    <ProjectFooter
+      nextProject={nextProject}
+      previousProject={previousProject}
+    />
+    <ContentContainer id="footer" isLast>
+      <Footer />
+    </ContentContainer>
+  </main>
+</Layout>

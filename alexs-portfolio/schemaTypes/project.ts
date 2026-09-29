@@ -11,6 +11,14 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+      },
+    }),
+    defineField({
       name: 'liveLink',
       title: 'Live Link',
       type: 'string',

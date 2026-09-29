@@ -5,14 +5,16 @@ type Props = {
   children: ReactNode;
   id: string;
   isLast?: boolean;
+  className?: string;
 };
 
-const Content = ({ children, id, isLast = false }: Props) => {
+const Content = ({ children, id, isLast = false, className }: Props) => {
   return (
     <section
       id={id}
       className={cn(
         "w-full flex flex-col items-center justify-center relative animate-fadeInAndUp",
+        className,
       )}
     >
       <div className="w-11/12 md:w-3/4 max-w-6xl md:py-20 py-10 gap-8 flex flex-col">
@@ -25,8 +27,20 @@ const Content = ({ children, id, isLast = false }: Props) => {
   );
 };
 
-const ContentContainer = ({ children, id, isLast = false }: Props) => {
-  return <Content children={children} id={id} isLast={isLast} />;
+const ContentContainer = ({
+  children,
+  id,
+  isLast = false,
+  className,
+}: Props) => {
+  return (
+    <Content
+      children={children}
+      id={id}
+      isLast={isLast}
+      className={className}
+    />
+  );
 };
 
 export default ContentContainer;
