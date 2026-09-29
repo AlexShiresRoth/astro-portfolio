@@ -1,4 +1,4 @@
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "../lib/utils";
 import type { Project } from "../types/project";
 
@@ -16,11 +16,7 @@ const ProjectComponent = ({ project, index }: Props) => {
             <div>
               <span className="text-xs text-accent italic">0{index + 1}</span>
             </div>
-            <a
-              href={project.liveLink}
-              target="__blank"
-              rel="noopener noreferrer"
-            >
+            <a href={`/projects/${project.slug.current}`}>
               {project.optImage && (
                 <img
                   src={project.optImage?.width(850).url()}
@@ -30,33 +26,40 @@ const ProjectComponent = ({ project, index }: Props) => {
               )}
             </a>
           </div>
-          <div className="flex flex-col gap-8 w-full md:w-2/3">
-            <div className="flex items-center justify-between">
-              {project.liveLink ? (
+          <div className="flex flex-col gap-2 w-full md:w-2/3">
+            <div className="w-full flex items-center justify-between border-b border-slate-50/5 pb-4">
+              <div>
                 <a
-                  href={project.liveLink}
-                  target="__blank"
-                  rel="noopener noreferrer"
-                  className="text-3xl hover:underline hover:text-amber-700 transition-all duration-300 flex items-center gap-1"
+                  href={`/projects/${project.slug.current}`}
+                  className="hover:underline flex items-center gap-1 text-lg font-bold  hover:text-accent transition-colors duration-300"
                 >
-                  {project.title}{" "}
-                  <span>
-                    <ExternalLink size={16} />
-                  </span>
+                  {project.title}
                 </a>
-              ) : (
-                <h2 className="text-3xl">{project.title}</h2>
-              )}
-              {project.sourceCodeLink && (
-                <a
-                  href={project.sourceCodeLink}
-                  target="__blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline flex items-center gap-1 text-sm"
-                >
-                  Source <ArrowUpRight size={14} />
-                </a>
-              )}
+              </div>
+              <div className="flex items-center gap-2 ">
+                {project.liveLink && (
+                  <a
+                    href={project.liveLink}
+                    target="__blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline flex items-center gap-1 text-sm"
+                  >
+                    View Live Site
+                    <ArrowUpRight size={14} />
+                  </a>
+                )}
+
+                {project.sourceCodeLink && (
+                  <a
+                    href={project.sourceCodeLink}
+                    target="__blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline flex items-center gap-1 text-sm"
+                  >
+                    View Source <ArrowUpRight size={14} />
+                  </a>
+                )}
+              </div>
             </div>
             <a
               href={project.liveLink}
@@ -72,14 +75,14 @@ const ProjectComponent = ({ project, index }: Props) => {
                 />
               )}
             </a>
-            <p>{project.solution}</p>
+            <p className="">{project.solution}</p>
             <div
               className={cn(
-                "flex items-center gap-4 justify-start flex-wrap border-t border-stone-50/5 pt-4",
+                "flex items-center gap-4 justify-start flex-wrap border-t border-slate-50/5 pt-4",
               )}
             >
               {project.code.map((code) => (
-                <span key={code} className="text-xs md:text-sm">
+                <span key={code} className="text-xs md:text-sm ">
                   {code}
                 </span>
               ))}

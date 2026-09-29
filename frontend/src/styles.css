@@ -4,12 +4,17 @@
 
 @layer base {
   .text-accent {
-    @apply text-emerald-600;
+    @apply text-emerald-500;
   }
   .styled-border {
-    @apply h-0.5 w-full bg-stone-50/5 animate-growWidth;
+    @apply h-0.5 w-full bg-slate-50/5 animate-growWidth;
   }
   body {
-    @apply bg-stone-950 overflow-x-hidden text-stone-200 font-hankenGrotesk;
+    @apply bg-slate-950/90 overflow-x-hidden text-slate-200 font-hankenGrotesk;
+  }
+  p,
+  a,
+  span {
+    @apply text-slate-300;
   }
 }

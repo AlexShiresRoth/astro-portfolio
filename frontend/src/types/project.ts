@@ -2,6 +2,8 @@ import type { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
 
 export type Project = {
   _id: string;
+  publishedAt: string;
+  slug: { current: string; type: string };
   problem?: string;
   solution?: string;
   contributions?: string[];
