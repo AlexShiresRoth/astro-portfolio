@@ -4,7 +4,6 @@ import ContentContainer from "../../components/ContentContainer";
 import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import ProjectBody from "../../components/ProjectBody";
-import ProjectDetails from "../../components/ProjectDetails";
 import ProjectFooter from "../../components/ProjectFooter";
 import ProjectHeader from "../../components/ProjectHeader";
 import Layout from "../../layouts/Layout.astro";
@@ -57,7 +56,6 @@ const projectWithImage = {
   <Navigation client:only="react" currentPath="project" />
   <main>
     <ProjectHeader project={projectWithImage} />
-    <ProjectDetails project={projectWithImage} />
     <ProjectBody project={projectWithImage} />
     <ProjectFooter
       nextProject={nextProject}

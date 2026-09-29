@@ -8,8 +8,8 @@ type Props = {
 
 export default function ProjectHeader({ project }: Props) {
   return (
-    <header className="w-full flex-col flex items-center justify-center pt-12">
-      <ContentContainer id="project-header">
+    <header className="w-full flex-col flex items-center justify-center mt-14 bg-slate-400/5 border-b border-slate-50/10">
+      <ContentContainer id="project-header" shouldAnimate={false}>
         <div className="flex flex-col gap-8">
           <div className="flex items-center gap-2">
             <span className="text-accent text-xs">Case Study</span>
@@ -27,7 +27,9 @@ export default function ProjectHeader({ project }: Props) {
               />
             </div>
             <div className="flex flex-col gap-4">
-              <h1 className="text-6xl font-bold">{project.title}</h1>
+              <h1 className="text-4xl font-bold md:text-6xl break-words">
+                {project.title}
+              </h1>
               <p className=" max-w-3xl">{project.overview}</p>
               <div className="flex gap-2">
                 {project.liveLink && (

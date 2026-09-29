@@ -6,14 +6,22 @@ type Props = {
   id: string;
   isLast?: boolean;
   className?: string;
+  shouldAnimate?: boolean;
 };
 
-const Content = ({ children, id, isLast = false, className }: Props) => {
+const Content = ({
+  children,
+  id,
+  isLast = false,
+  className,
+  shouldAnimate = true,
+}: Props) => {
   return (
     <section
       id={id}
       className={cn(
-        "w-full flex flex-col items-center justify-center relative animate-fadeInAndUp",
+        "w-full flex flex-col items-center justify-center relative",
+        shouldAnimate && "animate-fadeInAndUp",
         className,
       )}
     >
@@ -32,6 +40,7 @@ const ContentContainer = ({
   id,
   isLast = false,
   className,
+  shouldAnimate = true,
 }: Props) => {
   return (
     <Content
@@ -39,6 +48,7 @@ const ContentContainer = ({
       id={id}
       isLast={isLast}
       className={className}
+      shouldAnimate={shouldAnimate}
     />
   );
 };

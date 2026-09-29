@@ -8,7 +8,6 @@ export default function ProjectFooter({
   previousProject?: Project;
   nextProject: Project;
 }) {
-  console.log("nextProject", nextProject);
   return (
     <div className="w-full border-t border-slate-50/5 flex items-center justify-center py-8 animate-fadeInAndUp">
       <div className="w-11/12 md:w-3/4 max-w-6xl flex items-center justify-between">
